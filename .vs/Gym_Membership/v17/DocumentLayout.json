@@ -1,50 +1,50 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\",
+  "WorkspaceRootPath": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\pays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\pays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\membership.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\membership.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\marce\\onedrive\\desktop\\gym_membership\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\gym_membership.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\marce\\onedrive\\desktop\\gym_membership\\gym_membership.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:gym_membership.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Membership.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Membership.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Pays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Pays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\Staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +54,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,11 +66,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "Feedback.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Feedback.cs",
+              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Feedback.cs",
               "RelativeDocumentMoniker": "Models\\Feedback.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Feedback.cs",
+              "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Feedback.cs",
               "RelativeToolTip": "Models\\Feedback.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -78,11 +78,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Role.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Role.cs",
+              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Role.cs",
               "RelativeDocumentMoniker": "Models\\Role.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Role.cs",
+              "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Role.cs",
               "RelativeToolTip": "Models\\Role.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -90,11 +90,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "Classes.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Classes.cs",
+              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Classes.cs",
               "RelativeDocumentMoniker": "Models\\Classes.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Classes.cs",
+              "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Classes.cs",
               "RelativeToolTip": "Models\\Classes.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -102,11 +102,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Membership.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Membership.cs",
+              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Membership.cs",
               "RelativeDocumentMoniker": "Models\\Membership.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Membership.cs",
+              "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Membership.cs",
               "RelativeToolTip": "Models\\Membership.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -114,11 +114,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Pays.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Pays.cs",
+              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Pays.cs",
               "RelativeDocumentMoniker": "Models\\Pays.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Pays.cs",
+              "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Pays.cs",
               "RelativeToolTip": "Models\\Pays.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -126,11 +126,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Customer.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Customer.cs",
+              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Customer.cs",
               "RelativeDocumentMoniker": "Models\\Customer.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Customer.cs",
+              "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Customer.cs",
               "RelativeToolTip": "Models\\Customer.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -138,11 +138,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Admin.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Admin.cs",
+              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Admin.cs",
               "RelativeDocumentMoniker": "Models\\Admin.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Admin.cs",
+              "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Admin.cs",
               "RelativeToolTip": "Models\\Admin.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -150,11 +150,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 9,
               "Title": "Staff.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Staff.cs",
+              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Staff.cs",
               "RelativeDocumentMoniker": "Models\\Staff.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Staff.cs",
+              "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Staff.cs",
               "RelativeToolTip": "Models\\Staff.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -162,36 +162,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 10,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\User.cs",
+              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\User.cs",
               "RelativeToolTip": "Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T16:26:02.297Z",
+              "WhenOpened": "2025-10-07T16:26:02.297Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T14:28:53.241Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T14:28:53.241Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "Gym_Membership.csproj",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Gym_Membership.csproj",
+              "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Gym_Membership.csproj",
               "RelativeDocumentMoniker": "Gym_Membership.csproj",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Gym_Membership.csproj",
+              "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Gym_Membership.csproj",
               "RelativeToolTip": "Gym_Membership.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
