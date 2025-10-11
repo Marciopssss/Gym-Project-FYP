@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-light">Welcome, Admin 👋</h1>
+        <p class="text-secondary">Manage users, classes, and memberships from one place.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+        <div class="col-md-3">
+            <div class="card text-center bg-dark border-secondary shadow-sm p-3">
+                <h5>Total Users</h5>
+                <h2 class="text-primary">@ViewBag.TotalUsers</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center bg-dark border-secondary shadow-sm p-3">
+                <h5>Total Members</h5>
+                <h2 class="text-success">@ViewBag.TotalMembers</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center bg-dark border-secondary shadow-sm p-3">
+                <h5>Total Staff</h5>
+                <h2 class="text-warning">@ViewBag.TotalStaff</h2>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-center bg-dark border-secondary shadow-sm p-3">
+                <h5>Total Classes</h5>
+                <h2 class="text-info">@ViewBag.TotalClasses</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-light">Go to Homepage</a>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a asp-controller="Memberships" asp-action="Index" class="btn btn-outline-primary">
+        Manage Memberships
+    </a>
+</div>
+

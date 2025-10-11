@@ -1,7 +1,10 @@
-﻿namespace Gym_Membership.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Gym_Membership.Models
 {
     public class Feedback
     {
+        [Key]
         public int FeedbackID { get; set; }
         public int CustomerID { get; set; } 
         public int? StaffID { get; set; }   

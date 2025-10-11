@@ -8,16 +8,20 @@ namespace Gym_Membership.Models
         public int UserId { get; set; }
 
         [Required]
-        public string Email { get; set; }
+        public string Username { get; set; }
 
         [Required]
         public string Password { get; set; }
 
-        public ICollection<Role> Roles { get; set; }
+        public string? Email { get; set; }
+        public string? FullName { get; set; }
 
-        // One-to-One relationships
-        public Admin Admin { get; set; }
-        public Customer Customer { get; set; }
-        public Staff Staff { get; set; }
+        // ✅ Keep this: simple string role column
+        public string Role { get; set; } = "User";
+
+        // ✅ Keep optional relations (not RoleEntity)
+        public virtual Admin? Admin { get; set; }
+        public virtual Customer? Customer { get; set; }
+        public virtual Staff? Staff { get; set; }
     }
 }

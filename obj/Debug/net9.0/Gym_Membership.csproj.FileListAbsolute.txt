@@ -284,8 +284,6 @@ C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\compressed
 C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\compressed\qb9ja4th3j-9vr69e8ynj.gz
 C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\compressed\rwna1ck9md-87fc7y1x7t.gz
 C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\compressed\wlq0qzp68r-mlv21k5csn.gz
-C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\compressed\aaow44ir5j-39h5g4xer2.gz
-C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\compressed\r9995jg0gg-39h5g4xer2.gz
 C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\staticwebassets.build.json.cache
 C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\staticwebassets.development.json
@@ -297,3 +295,8 @@ C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\refint\Gym
 C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\Gym_Membership.pdb
 C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\Gym_Membership.genruntimeconfig.cache
 C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\ref\Gym_Membership.dll
+C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\scopedcss\Views\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\compressed\0jcx0xutgb-oi18upa6xf.gz
+C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\compressed\m65qnrtq4j-ujeoqujk4j.gz
+C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\compressed\aaow44ir5j-hklcwpoy46.gz
+C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\obj\Debug\net9.0\compressed\r9995jg0gg-hklcwpoy46.gz

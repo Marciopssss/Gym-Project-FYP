@@ -1,7 +1,10 @@
-﻿namespace Gym_Membership.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Gym_Membership.Models
 {
     public class Membership
     {
+        [Key]
         public int MembershipID { get; set; }
         public string Type { get; set; } 
         public int Duration { get; set; } 

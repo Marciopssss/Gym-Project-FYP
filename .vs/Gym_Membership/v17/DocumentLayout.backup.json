@@ -3,32 +3,84 @@
   "WorkspaceRootPath": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\controllers\\membershipcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\membershipcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\views\\membership\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\membership\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\views\\membership\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\membership\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\views\\membership\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\membership\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\views\\membership\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\membership\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\views\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\auth\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\user\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\staff.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\pays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\pays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\membership.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\membership.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\feedback.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\views\\user\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\user\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,12 +91,76 @@
       "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\membership.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\membership.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\pays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\pays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011132856_Updtedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20251011132856_Updtedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011131529_newdata1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20251011131529_newdata1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011130944_newdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20251011130944_newdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\admin\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\controllers\\supplementscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\supplementscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\controllers\\managecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\managecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\controllers\\malfunctionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\malfunctionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\controllers\\flavorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\flavorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\controllers\\equipmentorderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\equipmentorderscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\controllers\\equipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\equipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\employeescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\gym_membership.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:gym_membership.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\migrations\\20251011141614_fixeduserroleentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:migrations\\20251011141614_fixeduserroleentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\user\\desktop\\gym-membership\\gym-project-fyp\\migrations\\20251011135014_updtedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:migrations\\20251011135014_updtedatabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,7 +170,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,132 +178,153 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Feedback.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Feedback.cs",
-              "RelativeDocumentMoniker": "Models\\Feedback.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Feedback.cs",
-              "RelativeToolTip": "Models\\Feedback.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T16:38:45.883Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Role.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Role.cs",
-              "RelativeDocumentMoniker": "Models\\Role.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Role.cs",
-              "RelativeToolTip": "Models\\Role.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T16:29:14.239Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Classes.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Classes.cs",
-              "RelativeDocumentMoniker": "Models\\Classes.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Classes.cs",
-              "RelativeToolTip": "Models\\Classes.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T16:28:48.047Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Membership.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Membership.cs",
-              "RelativeDocumentMoniker": "Models\\Membership.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Membership.cs",
-              "RelativeToolTip": "Models\\Membership.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T16:28:37.202Z",
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Membership\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\Membership\\Delete.cshtml",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Membership\\Delete.cshtml",
+              "RelativeToolTip": "Views\\Membership\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-11T14:44:07.065Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Pays.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Pays.cs",
-              "RelativeDocumentMoniker": "Models\\Pays.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Pays.cs",
-              "RelativeToolTip": "Models\\Pays.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T16:27:58.475Z",
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Membership\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\Membership\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Membership\\Edit.cshtml",
+              "RelativeToolTip": "Views\\Membership\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-11T14:43:40.57Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Customer.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Customer.cs",
-              "RelativeDocumentMoniker": "Models\\Customer.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Customer.cs",
-              "RelativeToolTip": "Models\\Customer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T16:27:30.501Z",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Membership\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Membership\\Create.cshtml",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Membership\\Create.cshtml",
+              "RelativeToolTip": "Views\\Membership\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-11T14:43:17.143Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Admin.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Admin.cs",
-              "RelativeDocumentMoniker": "Models\\Admin.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Admin.cs",
-              "RelativeToolTip": "Models\\Admin.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T16:26:36.656Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Staff.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Staff.cs",
-              "RelativeDocumentMoniker": "Models\\Staff.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Staff.cs",
-              "RelativeToolTip": "Models\\Staff.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T16:27:47.127Z",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Membership\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Membership\\Index.cshtml",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Membership\\Index.cshtml",
+              "RelativeToolTip": "Views\\Membership\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-11T14:42:46.986Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAoAAAAAAAAAA==",
+              "Title": "MembershipController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\MembershipController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MembershipController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\MembershipController.cs",
+              "RelativeToolTip": "Controllers\\MembershipController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T16:26:02.297Z",
+              "WhenOpened": "2025-10-11T14:42:16.567Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ApplicationDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Data\\ApplicationDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
-              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Data\\ApplicationDbContext.cs",
-              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwBQAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Admin\\Dashboard.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Dashboard.cshtml",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-11T14:23:30.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "20251011141614_fixeduserroleentity.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011141614_fixeduserroleentity.cs",
+              "RelativeDocumentMoniker": "Migrations\\20251011141614_fixeduserroleentity.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011141614_fixeduserroleentity.cs",
+              "RelativeToolTip": "Migrations\\20251011141614_fixeduserroleentity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T14:28:53.241Z",
+              "WhenOpened": "2025-10-11T14:16:14.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Auth\\Register.cshtml",
+              "RelativeDocumentMoniker": "Views\\Auth\\Register.cshtml",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Auth\\Register.cshtml",
+              "RelativeToolTip": "Views\\Auth\\Register.cshtml",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-11T14:12:25.305Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Auth\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Auth\\Login.cshtml",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Auth\\Login.cshtml",
+              "RelativeToolTip": "Views\\Auth\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-11T14:12:15.786Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAmwEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T14:10:47.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABwAAAAAAAAAAAAAAGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-11T13:56:05.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T12:12:03.611Z",
               "EditorCaption": ""
             },
             {
@@ -196,7 +333,331 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "Controllers\\AdminController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T13:03:26.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\User\\Register.cshtml",
+              "RelativeDocumentMoniker": "Views\\User\\Register.cshtml",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\User\\Register.cshtml",
+              "RelativeToolTip": "Views\\User\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-11T13:55:21.783Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\User\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\User\\Login.cshtml",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\User\\Login.cshtml",
+              "RelativeToolTip": "Views\\User\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-11T13:55:53.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\UserController.cs",
+              "RelativeToolTip": "Controllers\\UserController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAswFQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T13:51:57.592Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\User.cs",
+              "RelativeDocumentMoniker": "Models\\User.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\User.cs",
+              "RelativeToolTip": "Models\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T16:26:02.297Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Feedback.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Feedback.cs",
+              "RelativeDocumentMoniker": "Models\\Feedback.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Feedback.cs",
+              "RelativeToolTip": "Models\\Feedback.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T16:38:45.883Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Staff.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Staff.cs",
+              "RelativeDocumentMoniker": "Models\\Staff.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Staff.cs",
+              "RelativeToolTip": "Models\\Staff.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T16:27:47.127Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "20251011135014_Updtedatabase.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011135014_Updtedatabase.cs",
+              "RelativeDocumentMoniker": "Migrations\\20251011135014_Updtedatabase.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011135014_Updtedatabase.cs",
+              "RelativeToolTip": "Migrations\\20251011135014_Updtedatabase.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABwAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T13:50:14.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Admin.cs",
+              "RelativeDocumentMoniker": "Models\\Admin.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Admin.cs",
+              "RelativeToolTip": "Models\\Admin.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T16:26:36.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Membership.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Membership.cs",
+              "RelativeDocumentMoniker": "Models\\Membership.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Membership.cs",
+              "RelativeToolTip": "Models\\Membership.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T16:28:37.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Classes.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Classes.cs",
+              "RelativeDocumentMoniker": "Models\\Classes.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Classes.cs",
+              "RelativeToolTip": "Models\\Classes.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAA8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T16:28:48.047Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Data\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T14:28:53.241Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-11T10:42:03.245Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Pays.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Pays.cs",
+              "RelativeDocumentMoniker": "Models\\Pays.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Pays.cs",
+              "RelativeToolTip": "Models\\Pays.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T16:27:58.475Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Role.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Role.cs",
+              "RelativeDocumentMoniker": "Models\\Role.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Role.cs",
+              "RelativeToolTip": "Models\\Role.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T16:29:14.239Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Customer.cs",
+              "RelativeDocumentMoniker": "Models\\Customer.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Models\\Customer.cs",
+              "RelativeToolTip": "Models\\Customer.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwA8AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-07T16:27:30.501Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "20251011132856_Updtedatabase.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011132856_Updtedatabase.cs",
+              "RelativeDocumentMoniker": "Migrations\\20251011132856_Updtedatabase.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011132856_Updtedatabase.cs",
+              "RelativeToolTip": "Migrations\\20251011132856_Updtedatabase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T13:28:56.739Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "20251011131529_newdata1.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011131529_newdata1.cs",
+              "RelativeDocumentMoniker": "Migrations\\20251011131529_newdata1.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011131529_newdata1.cs",
+              "RelativeToolTip": "Migrations\\20251011131529_newdata1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T13:15:29.48Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "20251011130944_newdata.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011130944_newdata.cs",
+              "RelativeDocumentMoniker": "Migrations\\20251011130944_newdata.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Migrations\\20251011130944_newdata.cs",
+              "RelativeToolTip": "Migrations\\20251011130944_newdata.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T13:09:44.646Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Admin\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Admin\\Index.cshtml",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Views\\Admin\\Index.cshtml",
+              "RelativeToolTip": "Views\\Admin\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-11T13:04:39.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "SupplementsController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\SupplementsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SupplementsController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\SupplementsController.cs",
+              "RelativeToolTip": "Controllers\\SupplementsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T12:01:59.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "EquipmentOrdersController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\EquipmentOrdersController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EquipmentOrdersController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\EquipmentOrdersController.cs",
+              "RelativeToolTip": "Controllers\\EquipmentOrdersController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T12:00:55.927Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "FlavorsController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\FlavorsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\FlavorsController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\FlavorsController.cs",
+              "RelativeToolTip": "Controllers\\FlavorsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T12:01:03.053Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "MalfunctionsController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\MalfunctionsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MalfunctionsController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\MalfunctionsController.cs",
+              "RelativeToolTip": "Controllers\\MalfunctionsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T12:01:36.35Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "ManageController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\ManageController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ManageController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\ManageController.cs",
+              "RelativeToolTip": "Controllers\\ManageController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAYwAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T12:01:50.25Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "EquipmentController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\EquipmentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EquipmentController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\EquipmentController.cs",
+              "RelativeToolTip": "Controllers\\EquipmentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T12:00:48.897Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "EmployeesController.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\EmployeesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EmployeesController.cs",
+              "ToolTip": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Controllers\\EmployeesController.cs",
+              "RelativeToolTip": "Controllers\\EmployeesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-11T11:26:48.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
               "Title": "Gym_Membership.csproj",
               "DocumentMoniker": "C:\\Users\\USER\\Desktop\\gym-membership\\Gym-Project-FYP\\Gym_Membership.csproj",
               "RelativeDocumentMoniker": "Gym_Membership.csproj",
@@ -204,8 +665,7 @@
               "RelativeToolTip": "Gym_Membership.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-07T14:21:29.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-07T14:21:29.457Z"
             }
           ]
         }

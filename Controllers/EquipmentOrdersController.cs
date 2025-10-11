@@ -1,25 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace GymManager.Controllers
+namespace Gym_Membership.Controllers
 {
     public class EquipmentOrdersController : Controller
     {
-        [Route("Orders/Equipment")]
-        public ViewResult Index()
-        {
-            return View();
-        }
-
-        [Route("Orders/Equipment/New")]
-        public ViewResult New()
-        {
-            return View();
-        }        
-        
-        [Route("Orders/Equipment/Edit/{id}")]
-        public ViewResult Edit()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
+        public IActionResult New() => View();
+        public IActionResult Edit() => View();
     }
 }

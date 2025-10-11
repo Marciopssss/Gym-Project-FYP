@@ -1,16 +1,19 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gym_Membership.Models
 {
     public class Customer
     {
+        [Key]
         public int CustomerID { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
 
         // One-to-One with User
-        public int UserID { get; set; }
+        [ForeignKey(nameof(User))]
+        public int UserId { get; set; }
         public User User { get; set; }
 
         // One-to-One with Membership

@@ -1,7 +1,11 @@
-﻿namespace Gym_Membership.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Gym_Membership.Models
 {
     public class Staff
     {
+        [Key]
         public int StaffID { get; set; }
         public string Name { get; set; }
         public string Position { get; set; }
@@ -9,7 +13,8 @@
         public string Email { get; set; }
 
         // One-to-One with User
-        public int UserID { get; set; }
+        [ForeignKey(nameof(User))]
+        public int UserId { get; set; }
         public User User { get; set; }
 
         // One-to-Many with Classes

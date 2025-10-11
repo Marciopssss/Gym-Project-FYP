@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gym_Membership.Models
 {
@@ -13,8 +14,10 @@ namespace Gym_Membership.Models
         [Required]
         public string Password { get; set; }
 
-        // One-to-One with User
-        public int UserID { get; set; }
-        public User User { get; set; }
+        // Foreign key to User
+        [ForeignKey(nameof(User))]
+        public int UserId { get; set; }
+
+        public virtual User User { get; set; }
     }
 }
