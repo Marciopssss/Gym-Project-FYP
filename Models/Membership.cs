@@ -6,9 +6,15 @@ namespace Gym_Membership.Models
     {
         [Key]
         public int MembershipID { get; set; }
-        public string Type { get; set; } 
-        public int Duration { get; set; } 
-        public decimal Price { get; set; }
+
+        [Required(ErrorMessage = "Please select a membership type")]
+        public string Type { get; set; }
+
+        [Required(ErrorMessage = "Please select a duration")]
+        public int? Duration { get; set; }  // ✅ Nullable (matches dropdown)
+
+        [Required(ErrorMessage = "Please select a price")]
+        public decimal? Price { get; set; }  // ✅ Nullable (matches dropdown)
 
         // One-to-Many with Customers
         public ICollection<Customer> Customers { get; set; }

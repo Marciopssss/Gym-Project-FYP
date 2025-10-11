@@ -1,0 +1,29 @@
+﻿@model IEnumerable<YourProjectName.Models.ExpiredMemberViewModel>
+
+@{
+    ViewBag.Title = "Expired Members Report";
+}
+
+<h2>Expired Members Report</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Member ID</th>
+            <th>Name</th>
+            <th>Plan</th>
+            <th>Expiry Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MemberID</td>
+                <td>@item.Name</td>
+                <td>@item.PlanName</td>
+                <td>@item.ExpiryDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>

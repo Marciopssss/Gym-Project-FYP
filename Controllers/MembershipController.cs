@@ -36,8 +36,14 @@ namespace Gym_Membership.Controllers
             {
                 _context.Add(membership);
                 await _context.SaveChangesAsync();
+
+                // ✅ Store success message in TempData
+                TempData["SuccessMessage"] = "Membership added successfully!";
+
                 return RedirectToAction(nameof(Index));
             }
+
+            // If validation fails, redisplay the form with validation messages
             return View(membership);
         }
 
