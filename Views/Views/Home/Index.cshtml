@@ -1,0 +1,51 @@
+@{ ViewData["Title"] = "Home"; }
+<section class="hero rounded-4 p-5 mb-4 gradient">
+    <div class="row align-items-center">
+        <div class="col-lg-7">
+            <h1 class="display-4 fw-bold">Transform your body. Track your progress.</h1>
+            <p class="lead-2 mt-3 text-secondary">Manage members, classes, and payments — all in one place.</p>
+            <div class="mt-4 d-flex gap-2">
+                <a class="btn btn-primary btn-lg" asp-controller="Memberships" asp-action="Index">View Plans</a>
+                <a class="btn btn-outline-light btn-lg" asp-controller="Classes" asp-action="Index">Browse Classes</a>
+            </div>
+        </div>
+        <div class="col-lg-5 text-center">
+            <div class="stat-card p-4 rounded-4">
+                <div class="row text-center g-3">
+                    <div class="col"><h2 class="mb-0">120+</h2><div class="text-secondary">Active Members</div></div>
+                    <div class="col"><h2 class="mb-0">18</h2><div class="text-secondary">Weekly Classes</div></div>
+                    <div class="col"><h2 class="mb-0">9.2</h2><div class="text-secondary">Avg. Rating</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="row g-4">
+    <div class="col-md-4">
+        <div class="card card-glow h-100">
+            <div class="card-body">
+                <h5 class="card-title">Memberships</h5>
+                <p class="card-text text-secondary">Create, edit and manage plan pricing and duration.</p>
+                <a asp-controller="Memberships" asp-action="Index" class="btn btn-outline-primary">Open</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card card-glow h-100">
+            <div class="card-body">
+                <h5 class="card-title">Classes</h5>
+                <p class="card-text text-secondary">Schedule classes and assign trainers with ease.</p>
+                <a asp-controller="Classes" asp-action="Index" class="btn btn-outline-primary">Open</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card card-glow h-100">
+            <div class="card-body">
+                <h5 class="card-title">Members</h5>
+                <p class="card-text text-secondary">Onboard customers, record payments and feedback.</p>
+                <a asp-controller="Customers" asp-action="Index" class="btn btn-outline-primary">Open</a>
+            </div>
+        </div>
+    </div>
+</section>

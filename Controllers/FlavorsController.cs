@@ -1,12 +1,9 @@
-﻿using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace GymManager.Controllers
+namespace Gym_Membership.Controllers
 {
     public class FlavorsController : Controller
     {
-        public ViewResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
     }
 }

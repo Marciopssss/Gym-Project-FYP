@@ -1,38 +1,13 @@
-﻿using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace GymManager.Controllers
+namespace Gym_Membership.Controllers
 {
     public class MalfunctionsController : Controller
     {
-        public ViewResult Index()
-        {
-            return View();
-        }
-
-        public ViewResult New()
-        {
-            return View();
-        }
-
-        public ViewResult Edit()
-        {
-            return View();
-        }
-
-        [Route("Malfunctions/History")]
-        public ViewResult History()
-        {
-            return View();
-        }
-
-        public ViewResult History(int id)
-        {
-            return View("SingleEquipmentHistory");
-        }
-
-        public ViewResult Details()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
+        public IActionResult New() => View();
+        public IActionResult Edit() => View();
+        public IActionResult History() => View();
+        public IActionResult Details() => View();
     }
 }

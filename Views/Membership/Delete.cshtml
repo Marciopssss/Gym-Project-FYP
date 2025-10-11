@@ -1,0 +1,16 @@
+﻿@model Gym_Membership.Models.Membership
+@{
+    ViewData["Title"] = "Delete Membership";
+}
+
+<h2>Delete Membership</h2>
+
+<div class="alert alert-danger">
+    Are you sure you want to delete the membership "<strong>@Model.Type</strong>"?
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="MembershipID" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

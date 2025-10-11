@@ -1,22 +1,11 @@
-﻿using System.Web.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
-namespace GymManager.Controllers
+namespace Gym_Membership.Controllers
 {
     public class SupplementsController : Controller
     {
-        public ViewResult Index()
-        {
-            return View();
-        }
-
-        public ViewResult New()
-        {
-            return View();
-        }
-
-        public ViewResult Edit()
-        {
-            return View();
-        }
+        public IActionResult Index() => View();
+        public IActionResult New() => View();
+        public IActionResult Edit() => View();
     }
 }
