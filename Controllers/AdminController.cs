@@ -3,6 +3,7 @@ using Gym_Membership.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Gym_Membership.Controllers
 {
     public class AdminController : Controller

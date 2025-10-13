@@ -1,6 +1,12 @@
 ﻿using Gym_Membership.Data;
 using Gym_Membership.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.EntityFrameworkCore;
+using System;
+
 
 namespace Gym_Membership.Controllers
 {
@@ -69,5 +75,42 @@ namespace Gym_Membership.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Login");
         }
+        
+
+public IActionResult GoogleLogin()
+    {
+        var redirectUrl = Url.Action("GoogleResponse", "Auth");
+        var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+        return Challenge(properties, GoogleDefaults.AuthenticationScheme);
     }
+
+    public async Task<IActionResult> GoogleResponse()
+    {
+        var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+        var claims = result.Principal?.Identities.FirstOrDefault()?.Claims;
+        var email = claims?.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.Email)?.Value;
+        var name = claims?.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.Name)?.Value;
+
+        // Check if user exists in DB
+        var user = _context.Users.FirstOrDefault(u => u.Email == email);
+        if (user == null)
+        {
+            user = new User
+            {
+                Username = name,
+                Email = email,
+                Role = "User"
+            };
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+        }
+
+        // Store session
+        HttpContext.Session.SetString("Username", user.Username);
+        HttpContext.Session.SetString("Role", user.Role);
+
+        return RedirectToAction("Index", "Home");
+    }
+}
 }
