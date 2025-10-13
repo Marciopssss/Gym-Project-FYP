@@ -1,0 +1,21 @@
+﻿@section Scripts {
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    </environment>
+
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+                integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"
+                integrity="sha512-FOs0AIawN1QvEHKxu+7cVJtJY6Fyb2sI9VxRhXrGghCQkqPvRY9ChT4ykebVqVcn+EPUfQ4T5rObhxYFv3WxZg=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"
+                integrity="sha512-M0XwPuvV3HZjG1oRpFZzq+5RuWICdsmgcMYeYDMbQ8dQhXEXnM0prjxiAml5Zo1fI7okh4kNjCw6wxrA3eoXxQ=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </environment>
+}

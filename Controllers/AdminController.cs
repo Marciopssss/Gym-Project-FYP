@@ -1,5 +1,7 @@
 ﻿using Gym_Membership.Data;
+using Gym_Membership.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gym_Membership.Controllers
 {
@@ -23,5 +25,26 @@ namespace Gym_Membership.Controllers
 
             return View();
         }
+        public async Task<IActionResult> ExpiredMembers()
+        {
+            var today = DateTime.Now;
+
+            var expiredMembers = _context.Customers
+                .Include(c => c.Membership)
+                .AsEnumerable() // 👈 This runs the rest of the query in C#
+                .Where(c => c.Membership.ExpiryDate < today)
+                .Select(c => new ExpiredMemberViewModel
+                {
+                    MemberID = c.CustomerID,
+                    Name = c.Name,
+                    PlanName = c.Membership.Type,
+                    ExpiryDate = c.Membership.ExpiryDate
+                })
+                .ToList();
+
+            return View();
+        }
+
+
     }
 }

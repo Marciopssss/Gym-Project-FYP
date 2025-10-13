@@ -14,52 +14,39 @@ namespace Gym_Membership.Controllers
             _context = context;
         }
 
-        // ✅ Helper: Restrict access to Admins only
-        private bool IsAdmin()
-        {
-            return HttpContext.Session.GetString("Role") == "Admin";
-        }
-
-        // ---------- READ (List all users) ----------
+        // ✅ READ — List all users
         public async Task<IActionResult> Index()
         {
-            if (!IsAdmin())
-                return RedirectToAction("Login", "User");
-
             var users = await _context.Users.ToListAsync();
             return View(users);
         }
 
-        // ---------- CREATE (Add user) ----------
-        [HttpGet]
+        // ✅ CREATE — Display form
         public IActionResult Create()
         {
-            if (!IsAdmin())
-                return RedirectToAction("Login", "User");
-
             return View();
         }
 
+        // ✅ CREATE — Save new user
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(User user)
         {
-            if (!IsAdmin())
-                return RedirectToAction("Login", "User");
-
             if (ModelState.IsValid)
             {
+                // 1️⃣ Save user first (to get UserId)
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
 
-                // ✅ If role is "Staff", also add to Staff table
+                // 2️⃣ If role = Staff, create related Staff record
                 if (user.Role == "Staff")
                 {
                     var staff = new Staff
                     {
+                        UserId = user.UserId,
                         Name = user.FullName ?? user.Username,
-                        Email = user.Email,
-                        // You can add more default values as needed
+                        Phone = "N/A",
+                        Position = "Not Assigned"
                     };
 
                     _context.Staff.Add(staff);
@@ -68,19 +55,14 @@ namespace Gym_Membership.Controllers
 
                 TempData["SuccessMessage"] = "User added successfully!";
                 return RedirectToAction(nameof(Index));
-
             }
 
             return View(user);
         }
 
-        // ---------- EDIT (Update user info) ----------
-        [HttpGet]
+        // ✅ EDIT — Display form
         public async Task<IActionResult> Edit(int? id)
         {
-            if (!IsAdmin())
-                return RedirectToAction("Login", "User");
-
             if (id == null) return NotFound();
 
             var user = await _context.Users.FindAsync(id);
@@ -89,13 +71,11 @@ namespace Gym_Membership.Controllers
             return View(user);
         }
 
+        // ✅ EDIT — Save changes
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, User user)
         {
-            if (!IsAdmin())
-                return RedirectToAction("Login", "User");
-
             if (id != user.UserId) return NotFound();
 
             if (ModelState.IsValid)
@@ -104,6 +84,30 @@ namespace Gym_Membership.Controllers
                 {
                     _context.Update(user);
                     await _context.SaveChangesAsync();
+
+                    // Update related Staff info if needed
+                    if (user.Role == "Staff")
+                    {
+                        var staff = await _context.Staff.FirstOrDefaultAsync(s => s.UserId == user.UserId);
+                        if (staff == null)
+                        {
+                            _context.Staff.Add(new Staff
+                            {
+                                UserId = user.UserId,
+                                Name = user.FullName ?? user.Username,
+                                Phone = "N/A",
+                                Position = "Not Assigned"
+                            });
+                        }
+                        else
+                        {
+                            staff.Name = user.FullName ?? user.Username;
+                            _context.Staff.Update(staff);
+                        }
+
+                        await _context.SaveChangesAsync();
+                    }
+
                     TempData["SuccessMessage"] = "User updated successfully!";
                     return RedirectToAction(nameof(Index));
                 }
@@ -119,36 +123,35 @@ namespace Gym_Membership.Controllers
             return View(user);
         }
 
-        // ---------- DELETE (Confirm and delete user) ----------
-        [HttpGet]
+        // ✅ DELETE — Confirm page
         public async Task<IActionResult> Delete(int? id)
         {
-            if (!IsAdmin())
-                return RedirectToAction("Login", "User");
-
             if (id == null) return NotFound();
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == id);
+            var user = await _context.Users.FirstOrDefaultAsync(m => m.UserId == id);
             if (user == null) return NotFound();
 
             return View(user);
         }
 
+        // ✅ DELETE — Execute deletion
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (!IsAdmin())
-                return RedirectToAction("Login", "User");
-
             var user = await _context.Users.FindAsync(id);
             if (user != null)
             {
+                // Remove related staff if role = staff
+                var staff = await _context.Staff.FirstOrDefaultAsync(s => s.UserId == id);
+                if (staff != null)
+                    _context.Staff.Remove(staff);
+
                 _context.Users.Remove(user);
                 await _context.SaveChangesAsync();
-                TempData["SuccessMessage"] = "User deleted successfully!";
             }
 
+            TempData["SuccessMessage"] = "User deleted successfully!";
             return RedirectToAction(nameof(Index));
         }
     }

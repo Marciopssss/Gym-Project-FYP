@@ -8,8 +8,8 @@ namespace Gym_Membership.Models
         [Key]
         public int StaffID { get; set; }
         public string Name { get; set; }
-        public string Position { get; set; }
-        public string Phone { get; set; }
+        public string? Position { get; set; }
+        public string? Phone { get; set; }
         public string Email { get; set; }
 
         // One-to-One with User
