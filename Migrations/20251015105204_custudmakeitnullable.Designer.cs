@@ -4,6 +4,7 @@ using Gym_Membership.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gym_Membership.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251015105204_custudmakeitnullable")]
+    partial class custudmakeitnullable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,15 +27,15 @@ namespace Gym_Membership.Migrations
 
             modelBuilder.Entity("ClassesCustomer", b =>
                 {
-                    b.Property<int>("ClassID")
-                        .HasColumnType("int");
-
                     b.Property<int>("ClassesClassID")
                         .HasColumnType("int");
 
-                    b.HasKey("ClassID", "ClassesClassID");
+                    b.Property<int>("CustomersCustomerID")
+                        .HasColumnType("int");
 
-                    b.HasIndex("ClassesClassID");
+                    b.HasKey("ClassesClassID", "CustomersCustomerID");
+
+                    b.HasIndex("CustomersCustomerID");
 
                     b.ToTable("ClassesCustomer");
                 });
@@ -103,9 +106,6 @@ namespace Gym_Membership.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerID"));
-
-                    b.Property<int?>("ClassID")
-                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -185,7 +185,7 @@ namespace Gym_Membership.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(10,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
@@ -317,15 +317,15 @@ namespace Gym_Membership.Migrations
 
             modelBuilder.Entity("ClassesCustomer", b =>
                 {
-                    b.HasOne("Gym_Membership.Models.Customer", null)
-                        .WithMany()
-                        .HasForeignKey("ClassID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Gym_Membership.Models.Classes", null)
                         .WithMany()
                         .HasForeignKey("ClassesClassID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Gym_Membership.Models.Customer", null)
+                        .WithMany()
+                        .HasForeignKey("CustomersCustomerID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

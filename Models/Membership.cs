@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Gym_Membership.Models
 {
@@ -13,26 +14,20 @@ namespace Gym_Membership.Models
         public string Type { get; set; }
 
         [Required(ErrorMessage = "Please select a duration")]
-        public int? Duration { get; set; }  // in months
+        public int Duration { get; set; }  // ✅ Non-nullable now
 
         [Required(ErrorMessage = "Please select a price")]
-        public decimal? Price { get; set; }
+        [Column(TypeName = "decimal(10,2)")]  // ✅ Prevents truncation warning
+        public decimal Price { get; set; }
 
-        // ✅ NEW: Start and Expiry Dates
+        // ✅ Start and calculated expiry date
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; } = DateTime.Now;
 
-        [DataType(DataType.Date)]
-        public DateTime ExpiryDate
-        {
-            get
-            {
-                // Automatically calculated based on duration (months)
-                return StartDate.AddMonths(Duration ?? 0);
-            }
-        }
+        [NotMapped]  // ✅ Do not store ExpiryDate in the DB
+        public DateTime ExpiryDate => StartDate.AddMonths(Duration);
 
-        // Relationships
-        public ICollection<Customer> Customers { get; set; }
+        // ✅ Initialize navigation properties to avoid null refs
+        public ICollection<Customer>? Customers { get; set; } = new List<Customer>();
     }
 }

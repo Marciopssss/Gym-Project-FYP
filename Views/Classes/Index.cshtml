@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Gym_Membership.Models.Classes>
+
+@{
+    ViewData["Title"] = "Classes";
+}
+
+<h2 class="mb-3">Classes Management</h2>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Add New Class</a>
+</p>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>Class Name</th>
+            <th>Trainer</th>
+            <th>Schedule</th>
+            <th>Duration (min)</th>
+            <th>Customers Enrolled</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ClassName</td>
+                <td>@item.TrainerName</td>
+                <td>@item.ScheduleTime.ToString("g")</td>
+                <td>@item.Duration</td>
+                <td>@(item.Customers?.Count ?? 0)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ClassID" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.ClassID" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -15,10 +15,8 @@ namespace Gym_Membership.Controllers
             _context = context;
         }
 
-        // ✅ Dashboard Page
         public IActionResult Dashboard()
         {
-            // Simple statistics (optional)
             ViewBag.TotalUsers = _context.Users.Count();
             ViewBag.TotalMembers = _context.Customers.Count();
             ViewBag.TotalStaff = _context.Staff.Count();
@@ -32,7 +30,7 @@ namespace Gym_Membership.Controllers
 
             var expiredMembers = _context.Customers
                 .Include(c => c.Membership)
-                .AsEnumerable() // 👈 This runs the rest of the query in C#
+                .AsEnumerable() 
                 .Where(c => c.Membership.ExpiryDate < today)
                 .Select(c => new ExpiredMemberViewModel
                 {

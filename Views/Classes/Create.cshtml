@@ -1,0 +1,44 @@
+﻿@model Gym_Membership.Models.Classes
+
+@{
+    ViewData["Title"] = "Add Class";
+}
+
+<h2>Add New Class</h2>
+
+<form asp-action="Create" asp-controller="Classes" method="post">
+    @Html.AntiForgeryToken()
+
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+    <div class="mb-3">
+        <label asp-for="ClassName" class="form-label"></label>
+        <input asp-for="ClassName" class="form-control" />
+        <span asp-validation-for="ClassName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="TrainerName" class="form-label"></label>
+        <input asp-for="TrainerName" class="form-control" />
+        <span asp-validation-for="TrainerName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ScheduleTime" class="form-label"></label>
+        <input asp-for="ScheduleTime" type="datetime-local" class="form-control" />
+        <span asp-validation-for="ScheduleTime" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Duration" class="form-label"></label>
+        <input asp-for="Duration" type="number" class="form-control" />
+        <span asp-validation-for="Duration" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

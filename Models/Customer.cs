@@ -24,6 +24,8 @@ namespace Gym_Membership.Models
         public Pays Pays { get; set; }
 
         // One-to-Many with Classes
+        public int? ClassID { get; set; }
+        [ForeignKey("ClassID")]
         public ICollection<Classes> Classes { get; set; }
 
         // One-to-Many with Feedback
