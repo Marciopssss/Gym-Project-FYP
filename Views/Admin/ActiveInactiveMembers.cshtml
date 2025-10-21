@@ -1,0 +1,76 @@
+﻿@{
+    ViewData["Title"] = "Active & Inactive Members";
+}
+
+<h2 class="mb-4">Active Members</h2>
+
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Plan</th>
+            <th>Expiry Date</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in ViewBag.ActiveMembers)
+        {
+            <tr>
+                <td>@member.MemberID</td>
+                <td>@member.Name</td>
+                <td>@member.PlanName</td>
+                <td>@member.ExpiryDate.ToShortDateString()</td>
+                <td><span class="badge bg-success">Active</span></td>
+                <td>
+                    <form asp-action="DeactivateMember" asp-controller="Admin" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@member.MemberID" />
+                        <button type="submit" class="btn btn-danger btn-sm">Deactivate</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+
+<h2 class="mb-4">Inactive Members</h2>
+
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Plan</th>
+            <th>Expiry Date</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in ViewBag.InactiveMembers)
+        {
+            <tr>
+                <td>@member.MemberID</td>
+                <td>@member.Name</td>
+                <td>@member.PlanName</td>
+                <td>@member.ExpiryDate.ToShortDateString()</td>
+                <td><span class="badge bg-secondary">Inactive</span></td>
+                <td>
+                    <form asp-action="ActivateMember" asp-controller="Admin" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@member.MemberID" />
+                        <button type="submit" class="btn btn-success btn-sm">Activate</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success mt-3">@TempData["Success"]</div>
+}

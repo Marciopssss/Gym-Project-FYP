@@ -7,6 +7,7 @@ namespace Gym_Membership.Models
     {
         [Key]
         public int CustomerID { get; set; }
+
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
@@ -30,5 +31,8 @@ namespace Gym_Membership.Models
 
         // One-to-Many with Feedback
         public ICollection<Feedback> Feedbacks { get; set; }
+
+        // ✅ NEW: Manual activation/deactivation flag
+        public bool IsActive { get; set; } = true;
     }
 }
