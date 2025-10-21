@@ -17,117 +17,121 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Gym_Membership
 build_property.RootNamespace = Gym_Membership
-build_property.ProjectDir = C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP\
+build_property.ProjectDir = C:\Users\hasso\OneDrive\Desktop\fyp\Gym-Project_FYP\Gym-Project-FYP\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\USER\Desktop\gym-membership\Gym-Project-FYP
+build_property.MSBuildProjectDirectory = C:\Users\hasso\OneDrive\Desktop\fyp\Gym-Project_FYP\Gym-Project-FYP
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/AdminUsers/Create.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/AdminUsers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Vc2Vyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/AdminUsers/Delete.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/AdminUsers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Vc2Vyc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/AdminUsers/Edit.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/AdminUsers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Vc2Vyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/AdminUsers/Index.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/AdminUsers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5Vc2Vyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Admin/Dashboard.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Admin/ActiveInactiveMembers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWN0aXZlSW5hY3RpdmVNZW1iZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Admin/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRGFzaGJvYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Admin/ExpiredMembers.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Admin/ExpiredMembers.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cRXhwaXJlZE1lbWJlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Admin/Index.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Admin/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Auth/Login.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Auth/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Auth/Register.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Auth/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Classes/Create.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Classes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nlc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Classes/Delete.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Classes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nlc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Classes/Edit.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Classes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nlc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Classes/Index.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Classes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xhc3Nlc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Home/Contact.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Home/Index.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Home/Privacy.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Membership/Create.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Membership/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Membership/Delete.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Membership/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Membership/Edit.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Membership/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFxFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Membership/Index.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Membership/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Shared/_Layout.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/User/Login.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/User/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/User/Register.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/User/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/_ViewImports.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/USER/Desktop/gym-membership/Gym-Project-FYP/Views/_ViewStart.cshtml]
+[C:/Users/hasso/OneDrive/Desktop/fyp/Gym-Project_FYP/Gym-Project-FYP/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
