@@ -108,5 +108,12 @@ namespace Gym_Membership.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+        public async Task<IActionResult> Plans()
+        {
+            var memberships = await _context.Memberships.ToListAsync();
+            return View(memberships);
+        }
+
     }
 }

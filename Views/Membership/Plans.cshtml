@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Gym_Membership.Models.Membership>
+@{
+    ViewData["Title"] = "Membership Plans";
+}
+
+<section class="container py-5">
+    <h2 class="text-center mb-5 fw-bold">Choose Your Plan</h2>
+    <div class="row g-4 justify-content-center">
+        @foreach (var plan in Model)
+        {
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 rounded-4 h-100 text-center p-4">
+                    <h4 class="fw-bold mb-3">@plan.Type</h4>
+                    <p class="text-secondary">@plan.Duration</p>
+                    <h3 class="fw-bold text-primary mb-3">$@plan.Price</h3>
+                    <a href="#" class="btn btn-outline-primary rounded-pill">Subscribe</a>
+                </div>
+            </div>
+        }
+    </div>
+</section>
