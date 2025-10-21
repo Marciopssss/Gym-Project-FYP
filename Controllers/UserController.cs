@@ -80,5 +80,77 @@ namespace Gym_Membership.Controllers
             HttpContext.Session.Clear();
             return RedirectToAction("Login");
         }
+        // ✅ View Profile
+        public IActionResult Profile()
+        {
+            var username = HttpContext.Session.GetString("Username");
+            if (string.IsNullOrEmpty(username))
+                return RedirectToAction("Login", "Auth");
+
+            var user = _context.Users.FirstOrDefault(u => u.Username == username);
+            return View(user);
+        }
+
+        // ✅ Edit Profile (GET)
+        [HttpGet]
+        public IActionResult EditProfile()
+        {
+            var username = HttpContext.Session.GetString("Username");
+            if (string.IsNullOrEmpty(username))
+                return RedirectToAction("Login", "User");
+
+            var user = _context.Users.FirstOrDefault(u => u.Username == username);
+            if (user == null)
+                return NotFound();
+
+            return View(user);
+        }
+
+        // ✅ Edit Profile (POST)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditProfile(User updatedUser)
+        {
+            ModelState.Remove("Username");
+            ModelState.Remove("Password");
+            ModelState.Remove("FullName");
+            if (!ModelState.IsValid)
+            {
+                // 👇 Log validation issues (for debugging)
+                foreach (var error in ModelState)
+                {
+                    Console.WriteLine($"{error.Key}: {string.Join(", ", error.Value.Errors.Select(e => e.ErrorMessage))}");
+                }
+                return View(updatedUser);
+            }
+
+            // ✅ Ensure UserId is fetched from session if it's missing
+            if (updatedUser.UserId == 0)
+            {
+                var username = HttpContext.Session.GetString("Username");
+                var userFromSession = _context.Users.FirstOrDefault(u => u.Username == username);
+                if (userFromSession != null)
+                    updatedUser.UserId = userFromSession.UserId;
+            }
+
+            var user = await _context.Users.FindAsync(updatedUser.UserId);
+            if (user == null) return NotFound();
+
+            // ✅ Update editable fields only
+            user.Email = updatedUser.Email;
+            user.Phone = updatedUser.Phone;
+            user.Address = updatedUser.Address;
+            user.Age = updatedUser.Age;
+            user.Gender = updatedUser.Gender;
+
+            _context.Update(user);
+            await _context.SaveChangesAsync();
+
+            TempData["Success"] = "Profile updated successfully!";
+            return RedirectToAction("Profile");
+        }
+
+
+
     }
 }

@@ -15,6 +15,16 @@ namespace Gym_Membership.Models
 
         public string? Email { get; set; }
         public string? FullName { get; set; }
+        [Phone]
+        public string? Phone { get; set; }
+
+        public string? Address { get; set; }
+
+        [Range(10, 100)]
+        public int? Age { get; set; }
+
+        public string? Gender { get; set; }
+
 
         // ✅ Keep this: simple string role column
         public string Role { get; set; } = "User";

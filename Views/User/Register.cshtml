@@ -3,32 +3,106 @@
     ViewData["Title"] = "Register";
 }
 
-<h2>Register</h2>
+<h2 class="mb-4 text-center">Create Your Account</h2>
 
-<form asp-action="Register" method="post">
-    <label>Username</label>
-    <input asp-for="Username" class="form-control" />
-    <span asp-validation-for="Username" class="text-danger"></span>
+<form asp-action="Register" asp-controller="User" method="post" class="bg-dark text-light p-4 rounded shadow-lg mx-auto" style="max-width: 450px;">
+    @Html.AntiForgeryToken()
 
-    <label>Email</label>
-    <input asp-for="Email" class="form-control" />
-    <span asp-validation-for="Email" class="text-danger"></span>
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
-    <label>Password</label>
-    <input asp-for="Password" type="password" class="form-control" />
-    <span asp-validation-for="Password" class="text-danger"></span>
+    <div class="mb-3">
+        <label asp-for="FullName" class="form-label"></label>
+        <input asp-for="FullName" class="form-control" placeholder="John Doe" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
 
-    <label>Role</label>
-    <input asp-for="Role" class="form-control" />
+    <div class="mb-3">
+        <label asp-for="Username" class="form-label"></label>
+        <input asp-for="Username" class="form-control" placeholder="Choose a username" />
+        <span asp-validation-for="Username" class="text-danger"></span>
+    </div>
 
-    <button type="submit" class="btn btn-primary mt-3">Sign Up</button>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label"></label>
+        <input asp-for="Email" class="form-control" placeholder="you@example.com" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <!-- Password field -->
+    <div class="mb-3 position-relative">
+        <label asp-for="Password" class="form-label"></label>
+        <div class="input-group">
+            <input asp-for="Password" type="password" id="password" class="form-control" placeholder="Enter your password" />
+            <button type="button" class="btn btn-outline-secondary" onclick="togglePassword('password', 'toggleIcon1')">
+                <i id="toggleIcon1" class="bi bi-eye-slash"></i>
+            </button>
+        </div>
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <!-- Confirm Password field -->
+    <div class="mb-3 position-relative">
+        <label class="form-label">Confirm Password</label>
+        <div class="input-group">
+            <input type="password" id="confirmPassword" class="form-control" placeholder="Re-enter your password" />
+            <button type="button" class="btn btn-outline-secondary" onclick="togglePassword('confirmPassword', 'toggleIcon2')">
+                <i id="toggleIcon2" class="bi bi-eye-slash"></i>
+            </button>
+        </div>
+        <span id="confirmError" class="text-danger"></span>
+    </div>
+
+    <!-- Role -->
+    <div class="mb-3">
+        <label asp-for="Role" class="form-label"></label>
+        <input asp-for="Role" class="form-control" value="User" readonly />
+    </div>
+
+    <button type="submit" class="btn btn-success w-100" onclick="return validatePasswords()">Create Account</button>
+
+    <div class="text-center mt-3">
+        <p>Already have an account? <a asp-action="Login" asp-controller="User" class="text-info">Login here</a></p>
+    </div>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+    }
+    @if (ViewBag.Success != null)
+    {
+        <div class="alert alert-success mt-3">@ViewBag.Success</div>
+    }
 </form>
 
-@if (ViewBag.Error != null)
-{
-    <div class="alert alert-danger mt-3">@ViewBag.Error</div>
-}
-@if (ViewBag.Success != null)
-{
-    <div class="alert alert-success mt-3">@ViewBag.Success</div>
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script>
+        // Toggle show/hide password visibility
+        function togglePassword(id, iconId) {
+            const input = document.getElementById(id);
+            const icon = document.getElementById(iconId);
+            if (input.type === "password") {
+                input.type = "text";
+                icon.classList.replace("bi-eye-slash", "bi-eye");
+            } else {
+                input.type = "password";
+                icon.classList.replace("bi-eye", "bi-eye-slash");
+            }
+        }
+
+        // Check if passwords match before form submit
+        function validatePasswords() {
+            const pass = document.getElementById("password").value;
+            const confirm = document.getElementById("confirmPassword").value;
+            const error = document.getElementById("confirmError");
+
+            if (pass !== confirm) {
+                error.innerText = "Passwords do not match.";
+                return false; // prevent submission
+            }
+            error.innerText = "";
+            return true;
+        }
+    </script>
 }
