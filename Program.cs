@@ -50,9 +50,15 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseSession();
+<<<<<<< HEAD
 app.UseAuthentication();
 app.UseAuthorization();
 
+=======
+
+app.UseAuthentication();
+app.UseAuthorization();
+>>>>>>> b6de1d645d02b2a55198069e57a6c706cffe7a61
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
