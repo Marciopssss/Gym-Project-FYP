@@ -1,25 +1,178 @@
-
 :root {
-  --bg: #0b0f14;
-  --surface: #121822;
-  --card: #161c26;
-  --text: #e6edf3;
-  --muted: #9aa7b2;
-  --primary: #4cc9f0;
-  --primary-glow: 0 0 25px rgba(76,201,240,.35);
+    --bg: #0b0f14;
+    --surface: #121822;
+    --card: #161c26;
+    --text: #e6edf3;
+    --muted: #9aa7b2;
+    --primary: #4cc9f0;
+    --primary-glow: 0 0 25px rgba(76,201,240,.35);
 }
-body { background: var(--bg); color: var(--text); }
-.navbar, footer { background: var(--surface); }
-.neon { letter-spacing: .5px; }
-.neon-accent { color: var(--primary); text-shadow: var(--primary-glow); }
-.gradient { 
-  background: radial-gradient(1200px 400px at -20% -20%, rgba(76,201,240,.15), transparent),
-              linear-gradient(180deg, var(--surface), var(--bg));
+
+body {
+    background: var(--bg);
+    color: var(--text);
 }
-.stat-card { background: var(--card); border: 1px solid #222a35; }
-.card-glow { background: var(--card); border: 1px solid #263041; box-shadow: var(--primary-glow); }
-.lead-2 { font-size: 1.15rem; }
-.btn-primary { background: var(--primary); border-color: var(--primary); color: #05202e; }
-.form-control, .form-select { background: #0f1520; border-color: #253041; color: var(--text); }
-.form-control::placeholder { color: #6a7a86; }
-.dropdown-menu { --bs-dropdown-bg: #121822; }
+
+.navbar, footer {
+    background: var(--surface);
+}
+
+.neon {
+    letter-spacing: .5px;
+}
+
+.neon-accent {
+    color: var(--primary);
+    text-shadow: var(--primary-glow);
+}
+
+.gradient {
+    background: radial-gradient(1200px 400px at -20% -20%, rgba(76,201,240,.15), transparent), linear-gradient(180deg, var(--surface), var(--bg));
+}
+
+.stat-card {
+    background: var(--card);
+    border: 1px solid #222a35;
+}
+
+.card-glow {
+    background: var(--card);
+    border: 1px solid #263041;
+    box-shadow: var(--primary-glow);
+}
+
+.lead-2 {
+    font-size: 1.15rem;
+}
+
+.form-control, .form-select {
+    background: #0f1520;
+    border-color: #253041;
+    color: var(--text);
+}
+
+    .form-control::placeholder {
+        color: #6a7a86;
+    }
+
+.dropdown-menu {
+    --bs-dropdown-bg: #121822;
+}
+
+/* ==== HERO SECTION ==== */
+.hero-section {
+    background: radial-gradient(circle at top, #0c0f12 0%, #06080a 100%);
+    color: #fff;
+    position: relative;
+}
+
+.text-glow {
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+    letter-spacing: 0.5px;
+}
+
+/* ==== INFO BOXES ==== */
+.bg-gradient-dark {
+    background: radial-gradient(circle at top, #111418 0%, #080b0e 100%);
+}
+
+/* ==== FEATURE CARDS ==== */
+.feature-card {
+    border-radius: 1rem;
+    transition: all 0.35s ease;
+}
+
+    .feature-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
+        background: linear-gradient(160deg, #151a1f, #0e1216);
+    }
+
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===============================================
+   NEON GLOW BUTTONS & FEATURE CARD ANIMATION
+   =============================================== */
+
+/* Neon Buttons */
+.btn-neon-primary {
+    background: linear-gradient(90deg, #00bcd4, #0096c7) !important;
+    border: none !important;
+    color: #fff !important;
+    font-weight: 600;
+    padding: 12px 32px !important;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.6), 0 0 25px rgba(0, 188, 212, 0.3);
+    animation: pulseGlow 2.5s infinite ease-in-out;
+    transition: all 0.3s ease !important;
+}
+
+    .btn-neon-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 20px rgba(0, 188, 212, 1), 0 0 50px rgba(0, 188, 212, 0.6);
+        background: linear-gradient(90deg, #00c2d4, #0077b6) !important;
+    }
+
+/* Outline Neon */
+.btn-outline-neon {
+    border: 2px solid #00bcd4 !important;
+    color: #00bcd4 !important;
+    background: transparent !important;
+    font-weight: 600;
+    padding: 12px 32px !important;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
+    transition: all 0.3s ease !important;
+}
+
+    .btn-outline-neon:hover {
+        background: #00bcd4 !important;
+        color: #fff !important;
+        transform: translateY(-3px);
+        box-shadow: 0 0 25px rgba(0, 188, 212, 0.8), 0 0 60px rgba(0, 188, 212, 0.4);
+    }
+
+/* Pulse animation */
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(0,188,212,0.4), 0 0 25px rgba(0,188,212,0.2);
+    }
+
+    50% {
+        box-shadow: 0 0 25px rgba(0,188,212,0.8), 0 0 45px rgba(0,188,212,0.4);
+    }
+}
+
+/* ===============================================
+   FEATURE CARD HOVER EFFECT
+   =============================================== */
+.feature-card {
+    background: #0e1216;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 255, 255, 0.05);
+    transition: all 0.35s ease;
+}
+
+    .feature-card:hover {
+        transform: translateY(-6px);
+        background: linear-gradient(160deg, #151a1f, #0e1216);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 0.2), 0 0 35px rgba(0, 255, 255, 0.15);
+    }
+
+        /* Icon glow effect on hover */
+        .feature-card:hover i {
+            filter: drop-shadow(0 0 8px rgba(0,255,255,0.6));
+            transform: scale(1.1);
+            transition: all 0.3s ease;
+        }
+
+
+
+
