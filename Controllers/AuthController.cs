@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Security.Claims;
 
 
 namespace Gym_Membership.Controllers
@@ -84,33 +85,72 @@ public IActionResult GoogleLogin()
         return Challenge(properties, GoogleDefaults.AuthenticationScheme);
     }
 
-    public async Task<IActionResult> GoogleResponse()
-    {
-        var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-
-        var claims = result.Principal?.Identities.FirstOrDefault()?.Claims;
-        var email = claims?.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.Email)?.Value;
-        var name = claims?.FirstOrDefault(c => c.Type == System.Security.Claims.ClaimTypes.Name)?.Value;
-
-        // Check if user exists in DB
-        var user = _context.Users.FirstOrDefault(u => u.Email == email);
-        if (user == null)
+        [HttpGet]
+        public async Task<IActionResult> GoogleResponse()
         {
-            user = new User
+            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            var claims = result.Principal?.Identities.FirstOrDefault()?.Claims;
+
+            if (claims == null)
             {
-                Username = name,
-                Email = email,
-                Role = "User"
-            };
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+                TempData["Error"] = "Google login failed — no user data received.";
+                return RedirectToAction("Login", "Auth");
+            }
+
+            // Extract user info from Google claims
+            var email = claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+            var name = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
+
+            // ✅ New safety check
+            if (string.IsNullOrEmpty(email))
+            {
+                TempData["Error"] = "Your Google account did not return an email address. Please enable email access or use another account.";
+                return RedirectToAction("Login", "Auth");
+            }
+
+            // Check if user already exists
+            var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+
+            if (existingUser == null)
+            {
+                // Create new user if not exists
+                var newUser = new User
+                {
+                    Username = name ?? email.Split('@')[0],
+                    FullName = name,
+                    Email = email,
+                    Role = "User",
+                    Password = null // ✅ Google users don't need a password
+                };
+
+                _context.Users.Add(newUser);
+                await _context.SaveChangesAsync();
+
+                existingUser = newUser;
+            }
+
+            // ✅ Log the user in
+            HttpContext.Session.SetString("Username", existingUser.Username);
+            HttpContext.Session.SetString("Role", existingUser.Role);
+
+            return RedirectToAction("Index", "Home");
         }
 
-        // Store session
-        HttpContext.Session.SetString("Username", user.Username);
-        HttpContext.Session.SetString("Role", user.Role);
 
-        return RedirectToAction("Index", "Home");
+        [HttpGet]
+        public IActionResult ExternalLogin(string provider, string? returnUrl = null)
+        {
+            var redirectUrl = Url.Action(nameof(ExternalLoginCallback), "Auth", new { returnUrl });
+            var props = new AuthenticationProperties { RedirectUri = redirectUrl };
+            return Challenge(props, provider);
+        }
+
+        public async Task<IActionResult> ExternalLoginCallback(string? returnUrl = null)
+        {
+            var result = await HttpContext.AuthenticateAsync();
+            // or use HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme)
+            // … map Google claims (email, name) to your User model, auto-create if new, sign in, etc.
+            return Redirect(returnUrl ?? Url.Action("Index", "Home")!);
+        }
     }
-}
 }

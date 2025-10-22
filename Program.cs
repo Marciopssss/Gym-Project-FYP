@@ -2,20 +2,30 @@
 using Gym_Membership.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultScheme = "Cookies";
-    options.DefaultChallengeScheme = "Google";
-})
-.AddCookie("Cookies")
-.AddGoogle("Google", options =>
-{
-    var googleAuth = builder.Configuration.GetSection("Authentication:Google");
-    options.ClientId = googleAuth["ClientId"];
-    options.ClientSecret = googleAuth["ClientSecret"];
-});
+builder.Services
+    .AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+    })
+    .AddCookie()
+   .AddGoogle(options =>
+   {
+       options.ClientId = "YOUR_CLIENT_ID";
+       options.ClientSecret = "YOUR_CLIENT_SECRET";
+       options.SaveTokens = true;
+       options.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
+       options.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
+       Console.WriteLine($"Redirect URI: {options.CallbackPath}");
+   });
+
+
 
 // Add services
 builder.Services.AddControllersWithViews();
@@ -40,8 +50,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseSession();
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
