@@ -1,6 +1,7 @@
 ﻿using Gym_Membership.Data;
 using Gym_Membership.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gym_Membership.Controllers
 {
@@ -148,6 +149,12 @@ namespace Gym_Membership.Controllers
 
             TempData["Success"] = "Profile updated successfully!";
             return RedirectToAction("Profile");
+        }
+
+        public async Task<IActionResult> ViewPlans()
+        {
+            var plans = await _context.Memberships.ToListAsync();
+            return View(plans);
         }
 
 

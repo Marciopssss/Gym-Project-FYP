@@ -16,6 +16,9 @@ namespace Gym_Membership.Models
         [Required(ErrorMessage = "Please select a duration")]
         public int Duration { get; set; }  // ✅ Non-nullable now
 
+        public string description   { get; set; }
+        public string? ImagePath { get; set; }
+
         [Required(ErrorMessage = "Please select a price")]
         [Column(TypeName = "decimal(10,2)")]  // ✅ Prevents truncation warning
         public decimal Price { get; set; }
