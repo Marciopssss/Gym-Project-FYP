@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\marce\\onedrive\\desktop\\gym_membership\\controllers\\paymentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\paymentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\marce\\onedrive\\desktop\\gym_membership\\views\\payments\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\payments\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\marce\\onedrive\\desktop\\gym_membership\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,16 +19,8 @@
       "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:models\\pays.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\marce\\onedrive\\desktop\\gym_membership\\controllers\\paymentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:controllers\\paymentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\marce\\onedrive\\desktop\\gym_membership\\views\\membership\\plans.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\membership\\plans.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\marce\\onedrive\\desktop\\gym_membership\\views\\payments\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|solutionrelative:views\\payments\\success.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CFE9F8EC-4112-40A3-A00D-01272BA75D06}|Gym_Membership.csproj|c:\\users\\marce\\onedrive\\desktop\\gym_membership\\views\\payments\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -319,7 +319,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -343,13 +343,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "Success.cshtml",
               "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Views\\Payments\\Success.cshtml",
               "RelativeDocumentMoniker": "Views\\Payments\\Success.cshtml",
               "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Views\\Payments\\Success.cshtml",
               "RelativeToolTip": "Views\\Payments\\Success.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-10-28T15:41:23.696Z",
               "EditorCaption": ""
@@ -364,25 +364,24 @@
               "RelativeToolTip": "Views\\Payments\\Checkout.cshtml",
               "ViewState": "AgIAADAAAAAAAAAAAAAAAEEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-28T15:40:47.709Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-28T15:40:47.709Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "PaymentsController.cs",
               "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Controllers\\PaymentsController.cs",
               "RelativeDocumentMoniker": "Controllers\\PaymentsController.cs",
               "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Controllers\\PaymentsController.cs",
               "RelativeToolTip": "Controllers\\PaymentsController.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAtwIwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJkAAAAAAAAAAAArwIwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-28T15:36:19.778Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Plans.cshtml",
               "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Views\\Membership\\Plans.cshtml",
               "RelativeDocumentMoniker": "Views\\Membership\\Plans.cshtml",
@@ -390,8 +389,7 @@
               "RelativeToolTip": "Views\\Membership\\Plans.cshtml",
               "ViewState": "AgIAADkAAAAAAAAAAAAAAEoAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-27T16:12:23.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-27T16:12:23.096Z"
             },
             {
               "$type": "Document",
@@ -407,7 +405,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Pays.cs",
               "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Models\\Pays.cs",
               "RelativeDocumentMoniker": "Models\\Pays.cs",
@@ -415,18 +413,17 @@
               "RelativeToolTip": "Models\\Pays.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T11:12:41.624Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T11:12:41.624Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
               "ToolTip": "C:\\Users\\marce\\OneDrive\\Desktop\\Gym_Membership\\Data\\ApplicationDbContext.cs",
               "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-22T11:12:41.616Z",
               "EditorCaption": ""
@@ -477,8 +474,7 @@
               "RelativeToolTip": "Controllers\\MembershipController.cs",
               "ViewState": "AgIAAFgAAAAAAAAAAAAcwHYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T11:12:41.587Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T11:12:41.587Z"
             },
             {
               "$type": "Document",
@@ -490,8 +486,7 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAACaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-22T11:12:41.577Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T11:12:41.577Z"
             },
             {
               "$type": "Document",
