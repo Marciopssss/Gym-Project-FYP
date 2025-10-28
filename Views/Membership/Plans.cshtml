@@ -69,8 +69,8 @@
 
                                 @if (username != null)
                                 {
-                                    <a asp-controller="User" asp-action="Subscribe" asp-route-id="@plan.MembershipID"
-                                       class="btn btn-neon-primary px-4">Subscribe</a>
+                                    <a asp-controller="Payments" asp-action="Checkout" asp-route-id="@plan.MembershipID"
+                                       class="btn btn-outline-light rounded-pill">Subscribe</a>
                                 }
                                 else
                                 {

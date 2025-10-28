@@ -1,0 +1,65 @@
+﻿@model Gym_Membership.Controllers.CheckoutViewModel
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<section class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card shadow-sm border-0 rounded-4 p-4">
+                <h3 class="mb-3">You're joining the <strong>@Model.MembershipType</strong> plan</h3>
+                <p class="text-secondary">@Model.Duration • <strong>$@Model.Price</strong></p>
+
+                <form asp-action="Checkout" method="post" class="mt-4">
+                    <input type="hidden" name="MembershipID" value="@Model.MembershipID" />
+                    <input type="hidden" name="Amount" value="@Model.Price" />
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Card Number</label>
+                        <input name="CardNumber" class="form-control" placeholder="1234 5678 9012 3456" />
+                    </div>
+
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <label class="form-label">Expiry Month</label>
+                            <input name="ExpiryMonth" type="number" min="1" max="12" class="form-control" placeholder="MM" />
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Expiry Year</label>
+                            <input name="ExpiryYear" type="number" min="2025" class="form-control" placeholder="YYYY" />
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <label class="form-label">CVV</label>
+                            <input name="CVV" class="form-control" placeholder="123" />
+                        </div>
+                        <div class="col-6">
+                            <label class="form-label">Email (optional)</label>
+                            <input name="Email" type="email" class="form-control" placeholder="you@example.com" />
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-success btn-lg rounded-pill">Pay $@Model.Price</button>
+                    </div>
+
+                    <div class="text-center mt-3">
+                        <a asp-controller="Membership" asp-action="Plans" class="btn btn-link">Back to Plans</a>
+                    </div>
+                </form>
+
+                <div class="mt-4 small text-muted">
+                    <strong>Demo mode:</strong> this is a simulated payment page for your university project. No real money is processed.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
