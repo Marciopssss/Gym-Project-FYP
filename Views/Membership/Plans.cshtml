@@ -48,7 +48,15 @@
             </div>
         }
     </div>
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-warning text-center fw-semibold shadow-sm mt-3 rounded-4">
+            ⚠️ @TempData["Error"]
+        </div>
+    }
+
 </div>
+
 
 @section Scripts {
     @{

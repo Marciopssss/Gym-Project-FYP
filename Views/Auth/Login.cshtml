@@ -3,39 +3,164 @@
     ViewData["Title"] = "Login";
 }
 
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card p-4 card-glow shadow-lg">
-            <h3 class="mb-3 text-center">Welcome back</h3>
+<div class="d-flex align-items-center justify-content-center min-vh-100">
+    <div class="login-card glass-card p-5 shadow-lg">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-light">Welcome back 👋</h2>
+            <p class="text-secondary small">Access your gym account securely</p>
+        </div>
 
-            <form asp-action="Login" asp-controller="Auth" method="post">
-                <div class="mb-3">
-                    <label asp-for="Username" class="form-label">Username</label>
-                    <input asp-for="Username" class="form-control" placeholder="Enter your username" required />
+        <form asp-action="Login" asp-controller="Auth" method="post">
+            <!-- Username -->
+            <div class="mb-4">
+                <label asp-for="Username" class="form-label text-light fw-semibold">Username</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent text-secondary border-end-0">
+                        <i class="bi bi-person"></i>
+                    </span>
+                    <input asp-for="Username" class="form-control border-start-0" placeholder="Enter your username" required />
                 </div>
+            </div>
 
-                <div class="mb-3">
-                    <label asp-for="Password" class="form-label">Password</label>
-                    <input asp-for="Password" type="password" class="form-control" placeholder="••••••••" required />
+            <!-- Password -->
+            <div class="mb-4">
+                <label asp-for="Password" class="form-label text-light fw-semibold">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent text-secondary border-end-0">
+                        <i class="bi bi-lock"></i>
+                    </span>
+                    <input asp-for="Password" type="password" id="passwordField" class="form-control border-start-0" placeholder="••••••••" required />
+                    <button type="button" class="btn btn-outline-secondary border-start-0" id="togglePassword" tabindex="-1">
+                        <i class="bi bi-eye-slash" id="toggleIcon"></i>
+                    </button>
                 </div>
+            </div>
 
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+            <!-- Login Button -->
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold shadow-sm">
+                <i class="bi bi-box-arrow-in-right me-1"></i> Login
+            </button>
 
-                <div class="text-center mt-3">
-                    <span class="text-secondary">Don't have an account?</span>
-                    <a asp-controller="Auth" asp-action="Register" class="text-light ms-1">Sign Up</a>
-                </div>
-            </form>
+            <!-- Register -->
+            <div class="text-center mt-3">
+                <span class="text-secondary">Don't have an account?</span>
+                <a asp-controller="Auth" asp-action="Register" class="text-info ms-1 fw-semibold">Sign Up</a>
+            </div>
 
+            <!-- Error -->
             @if (ViewBag.Error != null)
             {
                 <div class="alert alert-danger mt-3">@ViewBag.Error</div>
             }
+        </form>
+
+        <!-- Divider -->
+        <div class="text-center mt-4 mb-2 text-secondary small">— OR —</div>
+
+        <!-- Google Login -->
+        <div class="text-center">
+            <a class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2 py-2"
+               asp-controller="Auth" asp-action="GoogleLogin">
+                <i class="bi bi-google fs-5"></i> Sign in with Google
+            </a>
         </div>
     </div>
 </div>
-<div class="mt-3 text-center">
-    <a class="btn btn-outline-danger" asp-controller="Auth" asp-action="GoogleLogin">
-        <i class="bi bi-google"></i> Sign in with Google
-    </a>
-</div>
+
+<!-- JS -->
+<script>
+    const togglePassword = document.getElementById("togglePassword");
+    const passwordField = document.getElementById("passwordField");
+    const toggleIcon = document.getElementById("toggleIcon");
+
+    togglePassword.addEventListener("click", () => {
+        const isPassword = passwordField.type === "password";
+        passwordField.type = isPassword ? "text" : "password";
+        toggleIcon.classList.toggle("bi-eye");
+        toggleIcon.classList.toggle("bi-eye-slash");
+    });
+</script>
+
+<!-- CSS -->
+<style>
+    body {
+        background: radial-gradient(circle at top left, #0f172a, #1e293b, #0f172a);
+        min-height: 100vh;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        width: 400px;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .glass-card:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+    .form-control {
+        background: transparent;
+        color: #e5e5e5;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #00bfff;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+        }
+
+    .input-group-text, .btn-outline-secondary {
+        border-color: rgba(255, 255, 255, 0.1);
+        background-color: transparent;
+        color: #aaa;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #007bff, #00bfff);
+        border: none;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #00a2ff, #0096c7);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+    .btn-outline-danger {
+        border: 1px solid #dc3545;
+        border-radius: 10px;
+        color: #dc3545;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: white;
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.3);
+        }
+
+    .login-card i.bi {
+        transition: 0.2s ease;
+    }
+
+    .login-card input:focus + button i.bi-eye-slash {
+        color: #00bfff;
+    }
+</style>

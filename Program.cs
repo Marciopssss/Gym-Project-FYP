@@ -1,9 +1,10 @@
 ﻿using Gym_Membership.Data;
 using Gym_Membership.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authentication.Google;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using Gym_Membership.Services;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,6 +31,9 @@ builder.Services
 builder.Services.AddControllersWithViews();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddSession();
+
+// ✅ Register Email Service (only once)
+builder.Services.AddScoped<EmailService>();
 
 // ✅ Database context
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -61,7 +65,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-// ✅ Seed admin (optional)
+// ✅ Seed default admin (optional)
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();

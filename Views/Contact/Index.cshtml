@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Contact Us";
+}
+
+<section class="contact-section">
+    <div class="container text-center">
+        <h2 class="text-info fw-bold mb-4">Send a Message</h2>
+
+        <form asp-controller="Contact" asp-action="Index" method="post" class="contact-form mx-auto">
+            <input type="text" name="name" placeholder="Your Name" class="form-control mb-3" required />
+            <input type="email" name="email" placeholder="Your Email" class="form-control mb-3" required />
+            <textarea name="message" placeholder="Your Message" class="form-control mb-3" rows="4" required></textarea>
+
+            <button type="submit" class="btn btn-info w-100 py-2 fw-semibold shadow-sm">
+                <i class="bi bi-send"></i> Send
+            </button>
+
+            @if (ViewBag.Success != null)
+            {
+                <div class="alert alert-success mt-3">@ViewBag.Success</div>
+            }
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+            }
+        </form>
+    </div>
+</section>
+
+<style>
+    body {
+        background-color: #0f172a;
+        color: white;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .contact-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact-form {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 30px;
+        width: 400px;
+        backdrop-filter: blur(10px);
+    }
+
+    .form-control {
+        background-color: transparent;
+        color: #e5e5e5;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #00bfff;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+        }
+
+    .btn-info {
+        background-color: #00bfff;
+        border: none;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-info:hover {
+            background-color: #0096c7;
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+    .alert {
+        border-radius: 10px;
+        font-size: 0.9rem;
+    }
+</style>

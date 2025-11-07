@@ -157,9 +157,64 @@ namespace Gym_Membership.Controllers
             return View(plans);
         }
 
-        
+        // ✅ Display all enrolled classes for the logged-in user
+        public IActionResult MyClasses()
+        {
+            var username = HttpContext.Session.GetString("Username");
+            if (string.IsNullOrEmpty(username))
+                return RedirectToAction("Login", "User");
+
+            var user = _context.Users.FirstOrDefault(u => u.Username == username);
+            if (user == null)
+                return RedirectToAction("Login", "User");
+
+            // ✅ Load all classes linked to this user
+            var enrolledClasses = _context.CustomerClasses
+                .Include(cc => cc.Class)
+                .Where(cc => cc.UserID == user.UserId)
+                .Select(cc => cc.Class)
+                .ToList();
+
+            return View(enrolledClasses);
+        }
 
 
+        [HttpPost]
+        public IActionResult Unsubscribe(int classId)
+        {
+            var username = HttpContext.Session.GetString("Username");
+            if (string.IsNullOrEmpty(username))
+                return RedirectToAction("Login", "User");
+
+            var user = _context.Users.FirstOrDefault(u => u.Username == username);
+            if (user == null)
+                return RedirectToAction("Login", "User");
+
+            // ✅ Find the record in the join table
+            var record = _context.CustomerClasses
+                .FirstOrDefault(cc => cc.ClassID == classId && cc.UserID == user.UserId);
+
+            if (record != null)
+            {
+                _context.CustomerClasses.Remove(record);
+                _context.SaveChanges();
+                TempData["Success"] = "You have successfully unsubscribed from this class.";
+            }
+
+            return RedirectToAction("MyClasses");
+        }
+
+
+        public async Task<IActionResult> Notifications()
+        {
+            var userId = int.Parse(User.FindFirst("UserId").Value);
+            var notifications = await _context.Notifications
+                .Where(n => n.UserId == userId)
+                .OrderByDescending(n => n.DateSent)
+                .ToListAsync();
+
+            return View(notifications);
+        }
 
 
     }

@@ -22,24 +22,30 @@ namespace Gym_Membership.Data
         public DbSet<Feedback> Feedbacks { get; set; }
         public DbSet<Classes> Classes { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
+        public DbSet<CustomerClass> CustomerClasses { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
+
+
 
         // 🔹 Add this method BELOW all DbSets
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
-            // Prevent multiple cascade paths for Subscriptions
+            // ✅ Correct one-to-many between Customer → Subscriptions
+            modelBuilder.Entity<Subscription>()
+                .HasOne(s => s.Customer)
+                .WithMany(c => c.Subscriptions)
+                .HasForeignKey(s => s.CustomerID)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            // ✅ Keep membership relation as before
             modelBuilder.Entity<Subscription>()
                 .HasOne(s => s.Membership)
                 .WithMany()
                 .HasForeignKey(s => s.MembershipID)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Subscription>()
-                .HasOne(s => s.Customer)
-                .WithMany()
-                .HasForeignKey(s => s.CustomerID)
-                .OnDelete(DeleteBehavior.Restrict);
         }
+
     }
 }

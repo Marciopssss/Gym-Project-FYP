@@ -2,16 +2,21 @@
 using Gym_Membership.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Stripe.Checkout;
+using static Org.BouncyCastle.Math.EC.ECCurve;
 
 namespace Gym_Membership.Controllers
 {
     public class ClassesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IConfiguration _config;  // ✅ Add this line
 
-        public ClassesController(ApplicationDbContext context)
+
+        public ClassesController(ApplicationDbContext context , IConfiguration config)
         {
             _context = context;
+            _config = config;
         }
 
         // GET: Classes
@@ -105,5 +110,155 @@ namespace Gym_Membership.Controllers
             }
             return RedirectToAction(nameof(Index));
         }
+
+        // ✅ USER SIDE - Browse Classes
+        public IActionResult Browse()
+        {
+            // Simple fetch (TrainerName is just a string, no navigation)
+            var classes = _context.Classes.ToList();
+            return View(classes);
+        }
+
+        // ✅ Subscribe to a class
+        [HttpPost]
+        public IActionResult Subscribe(int classId)
+        {
+            var username = HttpContext.Session.GetString("Username");
+            if (string.IsNullOrEmpty(username))
+            {
+                TempData["Error"] = "You must log in to subscribe to a class.";
+                return RedirectToAction("Browse");
+            }
+
+            var user = _context.Users.FirstOrDefault(u => u.Username == username);
+            if (user == null)
+            {
+                TempData["Error"] = "User not found.";
+                return RedirectToAction("Browse");
+            }
+
+            var classEntity = _context.Classes.FirstOrDefault(c => c.ClassID == classId);
+            if (classEntity == null)
+            {
+                TempData["Error"] = "Class not found.";
+                return RedirectToAction("Browse");
+            }
+
+            // ✅ Prevent duplicate subscription
+            var alreadyEnrolled = _context.CustomerClasses
+                .Any(cc => cc.ClassID == classId && cc.UserID == user.UserId);
+
+            if (alreadyEnrolled)
+            {
+                TempData["Error"] = $"You are already subscribed to {classEntity.ClassName}.";
+                return RedirectToAction("Browse");
+            }
+
+            // ✅ Add new record in join table
+            var customerClass = new CustomerClass
+            {
+                ClassID = classId,
+                UserID = user.UserId,
+                SubscriptionDate = DateTime.Now
+            };
+
+            _context.CustomerClasses.Add(customerClass);
+            _context.SaveChanges();
+
+            TempData["Success"] = $"You have successfully subscribed to {classEntity.ClassName}!";
+            return RedirectToAction("Browse");
+        }
+        [HttpPost]
+        public async Task<IActionResult> SubscribeWithStripe(int classId)
+        {
+            var classEntity = _context.Classes.FirstOrDefault(c => c.ClassID == classId);
+            if (classEntity == null)
+                return NotFound();
+
+            var username = HttpContext.Session.GetString("Username");
+            if (string.IsNullOrEmpty(username))
+                return RedirectToAction("Login", "User");
+
+            var user = _context.Users.FirstOrDefault(u => u.Username == username);
+            if (user == null)
+                return RedirectToAction("Login", "User");
+
+            // ✅ Use Stripe API key from appsettings.json
+            Stripe.StripeConfiguration.ApiKey = _config["Stripe:SecretKey"];
+
+            var domain = $"{Request.Scheme}://{Request.Host}";
+
+            var options = new SessionCreateOptions
+            {
+                PaymentMethodTypes = new List<string> { "card" },
+                LineItems = new List<SessionLineItemOptions>
+        {
+            new SessionLineItemOptions
+            {
+                PriceData = new SessionLineItemPriceDataOptions
+                {
+                    UnitAmountDecimal = classEntity.PricePerSession * 100, // Stripe uses cents
+                    Currency = "usd",
+                    ProductData = new SessionLineItemPriceDataProductDataOptions
+                    {
+                        Name = classEntity.ClassName,
+                        Description = classEntity.Description
+                    }
+                },
+                Quantity = 1
+            }
+        },
+                Mode = "payment",
+                SuccessUrl = $"{domain}/Classes/Success?classId={classId}",
+                CancelUrl = $"{domain}/Classes/Cancel"
+            };
+
+            var service = new SessionService();
+            var session = await service.CreateAsync(options);
+
+            return Redirect(session.Url);
+        }
+        public IActionResult Success(int classId)
+        {
+            var username = HttpContext.Session.GetString("Username");
+            if (string.IsNullOrEmpty(username))
+                return RedirectToAction("Login", "User");
+
+            var user = _context.Users.FirstOrDefault(u => u.Username == username);
+            if (user == null)
+                return RedirectToAction("Login", "User");
+
+            var classEntity = _context.Classes.FirstOrDefault(c => c.ClassID == classId);
+            if (classEntity == null)
+                return NotFound();
+
+            // ✅ Prevent duplicate enrollment
+            var alreadyEnrolled = _context.CustomerClasses
+                .Any(cc => cc.ClassID == classId && cc.UserID == user.UserId);
+
+            if (!alreadyEnrolled)
+            {
+                var customerClass = new CustomerClass
+                {
+                    ClassID = classId,
+                    UserID = user.UserId,
+                    SubscriptionDate = DateTime.Now
+                };
+                _context.CustomerClasses.Add(customerClass);
+                _context.SaveChanges();
+            }
+
+            ViewBag.Message = $"✅ Payment successful! You are now enrolled in {classEntity.ClassName}.";
+            return View();
+        }
+
+        public IActionResult Cancel()
+        {
+            ViewBag.Message = "❌ Payment was canceled.";
+            return View();
+        }
+
+
+
     }
 }

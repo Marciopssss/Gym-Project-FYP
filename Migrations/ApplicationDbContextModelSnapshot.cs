@@ -86,6 +86,9 @@ namespace Gym_Membership.Migrations
                     b.Property<string>("ImagePath")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("PricePerSession")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<DateTime>("ScheduleTime")
                         .HasColumnType("datetime2");
 
@@ -121,7 +124,7 @@ namespace Gym_Membership.Migrations
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
-                    b.Property<int>("MembershipID")
+                    b.Property<int?>("MembershipID")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -143,6 +146,32 @@ namespace Gym_Membership.Migrations
                         .IsUnique();
 
                     b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("Gym_Membership.Models.CustomerClass", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ClassID")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("SubscriptionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClassID");
+
+                    b.HasIndex("UserID");
+
+                    b.ToTable("CustomerClasses");
                 });
 
             modelBuilder.Entity("Gym_Membership.Models.Feedback", b =>
@@ -214,6 +243,34 @@ namespace Gym_Membership.Migrations
                     b.HasKey("MembershipID");
 
                     b.ToTable("Memberships");
+                });
+
+            modelBuilder.Entity("Gym_Membership.Models.Notification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("DateSent")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsRead")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("Gym_Membership.Models.Pays", b =>
@@ -421,9 +478,7 @@ namespace Gym_Membership.Migrations
                 {
                     b.HasOne("Gym_Membership.Models.Membership", "Membership")
                         .WithMany("Customers")
-                        .HasForeignKey("MembershipID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MembershipID");
 
                     b.HasOne("Gym_Membership.Models.User", "User")
                         .WithOne("Customer")
@@ -432,6 +487,25 @@ namespace Gym_Membership.Migrations
                         .IsRequired();
 
                     b.Navigation("Membership");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Gym_Membership.Models.CustomerClass", b =>
+                {
+                    b.HasOne("Gym_Membership.Models.Classes", "Class")
+                        .WithMany()
+                        .HasForeignKey("ClassID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Gym_Membership.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Class");
 
                     b.Navigation("User");
                 });
@@ -459,6 +533,17 @@ namespace Gym_Membership.Migrations
                     b.Navigation("Customer");
 
                     b.Navigation("Staff");
+                });
+
+            modelBuilder.Entity("Gym_Membership.Models.Notification", b =>
+                {
+                    b.HasOne("Gym_Membership.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Gym_Membership.Models.Pays", b =>
@@ -501,7 +586,7 @@ namespace Gym_Membership.Migrations
             modelBuilder.Entity("Gym_Membership.Models.Subscription", b =>
                 {
                     b.HasOne("Gym_Membership.Models.Customer", "Customer")
-                        .WithMany()
+                        .WithMany("Subscriptions")
                         .HasForeignKey("CustomerID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -528,6 +613,8 @@ namespace Gym_Membership.Migrations
 
                     b.Navigation("Pays")
                         .IsRequired();
+
+                    b.Navigation("Subscriptions");
                 });
 
             modelBuilder.Entity("Gym_Membership.Models.Membership", b =>

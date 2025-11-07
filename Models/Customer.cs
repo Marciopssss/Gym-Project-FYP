@@ -18,7 +18,7 @@ namespace Gym_Membership.Models
         public User User { get; set; }
 
         // One-to-One with Membership
-        public int MembershipID { get; set; }
+        public int? MembershipID { get; set; }
         public Membership Membership { get; set; }
 
         // One-to-One with Pays
@@ -34,5 +34,7 @@ namespace Gym_Membership.Models
 
         // ✅ NEW: Manual activation/deactivation flag
         public bool IsActive { get; set; } = true;
+        public ICollection<Subscription>? Subscriptions { get; set; }
+
     }
 }

@@ -14,6 +14,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Gym Membership</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+
 
     <!-- ✅ Then your CSS (must be last to override Bootstrap) -->
     <link href="~/css/style.css" rel="stylesheet" />
@@ -22,7 +24,7 @@
     <header class="border-bottom border-secondary">
         <nav class="navbar navbar-expand-lg navbar-dark container py-2">
             <a class="navbar-brand fw-bold neon" asp-controller="Home" asp-action="Index">
-                Gym<span class="neon-accent">_Membership</span>
+                Fitness<span class="neon-accent"> Gym</span>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
@@ -32,13 +34,27 @@
             <div class="collapse navbar-collapse" id="navMain">
                 <ul class="navbar-nav ms-auto gap-2 align-items-center">
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Membership" asp-action="Index">Memberships</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" asp-controller="Classes" asp-action="Index">Classes</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Classes" asp-action="Browse">Browse Classes</a>
-                    </li>
+                    @if (role == "Admin")
+                    {
+                        <!-- 🔹 Admin Navigation -->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Membership" asp-action="Index">Manage Memberships</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Classes" asp-action="Index">Manage Classes</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <!-- 🔹 User Navigation -->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Membership" asp-action="Plans">Memberships</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Classes" asp-action="Browse">Browse Classes</a>
+                        </li>
+                    }
+
 
                     <li class="nav-item"><a class="nav-link" asp-controller="Employees" asp-action="Index">Trainers</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a></li>
@@ -75,6 +91,10 @@
                             <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
                                 <li><a class="dropdown-item" asp-controller="User" asp-action="Profile">My Profile</a></li>
                                 <li><hr class="dropdown-divider" /></li>
+
+                                <li><a class="dropdown-item" asp-controller="User" asp-action="MyClasses">My Classes</a></li>
+
+                                <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item text-danger" asp-controller="Auth" asp-action="Logout">Logout</a></li>
                             </ul>
                         </li>
@@ -89,12 +109,78 @@
         @RenderBody()
     </main>
 
-    <footer class="border-top border-secondary py-4 mt-5">
-        <div class="container small text-secondary d-flex justify-content-between">
-            <span>© @DateTime.Now.Year - Gym_Membership</span>
-            <a class="link-secondary" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    @{
+        var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+        var action = ViewContext.RouteData.Values["action"]?.ToString();
+    }
+
+    @if (controller == "Home" && action == "Index")
+    {
+        <footer class="bg-dark border-top border-secondary mt-5 pt-5 text-light">
+            <div class="container">
+                <div class="row g-4">
+
+                    <!-- 🌟 Column 1: About -->
+                    <div class="col-md-4">
+                        <h5 class="fw-bold text-info mb-3">About Fitness Gym</h5>
+                        <p class="text-secondary">
+                            Fitness Gym is your all-in-one platform to manage memberships, book classes, and track your fitness journey.
+                            We combine smart technology with expert trainers to help you reach your goals.
+                        </p>
+                        <div class="d-flex gap-3 mt-3">
+                            <a href="#" class="text-info fs-4"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="text-info fs-4"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="text-info fs-4"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- 🌟 Column 2: Quick Links -->
+                    <div class="col-md-4">
+                        <h5 class="fw-bold text-info mb-3">Quick Links</h5>
+                        <ul class="list-unstyled">
+                            <li><a asp-controller="Home" asp-action="Index" class="text-secondary text-decoration-none">🏠 Home</a></li>
+                            <li><a asp-controller="Membership" asp-action="Plans" class="text-secondary text-decoration-none">💪 Membership Plans</a></li>
+                            <li><a asp-controller="Classes" asp-action="Browse" class="text-secondary text-decoration-none">🗓️ Browse Classes</a></li>
+                            <li><a asp-controller="Employees" asp-action="Index" class="text-secondary text-decoration-none">🏋️ Trainers</a></li>
+                            <li class="nav-item">
+                                <a asp-controller="Contact" asp-action="Index" class="nav-link">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 🌟 Column 3: Send a Message -->
+                    <div class="col-md-4">
+                        <h5 class="fw-bold text-info mb-3">Send a Message</h5>
+                        <form asp-controller="Home" asp-action="SendMessage" method="post">
+                            <div class="mb-2">
+                                <input type="text" name="Name" class="form-control bg-dark text-light border-secondary" placeholder="Your Name" required />
+                            </div>
+                            <div class="mb-2">
+                                <input type="email" name="Email" class="form-control bg-dark text-light border-secondary" placeholder="Your Email" required />
+                            </div>
+                            <div class="mb-2">
+                                <textarea name="Message" class="form-control bg-dark text-light border-secondary" rows="3" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-info w-100 mt-2">
+                                <i class="bi bi-send-fill me-2"></i> Send
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <!-- 🌟 Bottom Bar -->
+                <div class="text-center border-top border-secondary mt-4 pt-3 small text-secondary">
+                    <p class="mb-0">
+                        © @DateTime.Now.Year Fitness Gym | Developed by <span class="text-info">Ralph Touma</span> |
+                        <a asp-controller="Home" asp-action="Privacy" class="link-secondary">Privacy Policy</a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    }
+
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/script.js"></script>

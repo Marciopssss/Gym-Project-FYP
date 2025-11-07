@@ -1,40 +1,58 @@
-﻿@model IEnumerable<Gym_Membership.Models.ExpiredMemberViewModel>
-
-@{
-    ViewBag.Title = "Expired Members Report";
+﻿@{
+    ViewData["Title"] = "Expired Members";
 }
 
-<div class="container mt-4">
-    <h2 class="text-warning mb-4">Expired Members Report</h2>
+<h2 class="text-warning mb-4 fw-bold">
+    <i class="bi bi-exclamation-triangle"></i> Expired Memberships
+</h2>
 
-    @if (Model == null || !Model.Any())
-    {
-        <div class="alert alert-success text-center">
-            🎉 No expired members found. All memberships are active!
-        </div>
-    }
-    else
-    {
-        <table class="table table-dark table-striped table-bordered align-middle">
-            <thead class="table-secondary text-dark">
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success text-center">@ViewBag.Message</div>
+}
+else
+{
+    <table class="table table-dark table-striped table-hover align-middle text-center shadow-sm rounded-4">
+        <thead class="table-warning text-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Plan</th>
+                <th>Expired On</th>
+                <th>Days Since Expiry</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var member in Model)
+            {
                 <tr>
-                    <th>Member ID</th>
-                    <th>Name</th>
-                    <th>Membership Type</th>
-                    <th>Expiry Date</th>
+                    <td>@member.CustomerID</td>
+                    <td class="fw-semibold">@member.Name</td>
+                    <td>@member.Email</td>
+                    <td>@member.Plan</td>
+                    <td>@member.ExpiryDate.ToString("MM/dd/yyyy")</td>
+                    <td>
+                        <span class="badge bg-danger">@member.DaysExpired days ago</span>
+                    </td>
+                    <td>
+                        <form asp-action="SendReminder" asp-controller="Admin" method="post" style="display:inline;">
+                            <input type="hidden" name="userId" value="@member.UserId" />
+                            <button type="submit" class="btn btn-outline-info btn-sm">
+                                <i class="bi bi-bell"></i> Send Reminder
+                            </button>
+                        </form>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@item.MemberID</td>
-                        <td>@item.Name</td>
-                        <td>@item.PlanName</td> @* or @item.Type if renamed *@
-                        <td>@item.ExpiryDate.ToShortDateString()</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-</div>
+            }
+        </tbody>
+    </table>
+}
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success text-center mt-4 shadow-sm">
+        <i class="bi bi-check-circle"></i> @TempData["Success"]
+    </div>
+}

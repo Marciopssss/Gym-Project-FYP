@@ -125,43 +125,128 @@ namespace Gym_Membership.Controllers
         }
 
         // ✅ Expired Members Report
+        // ✅ Expired Members Report (With Reminder System)
         public async Task<IActionResult> ExpiredMembers()
         {
-            var today = DateTime.Now;
+            var today = DateTime.UtcNow;
 
-            var expiredMembers = _context.Customers
-                .Include(c => c.Membership)
-                .AsEnumerable()
-                .Where(c => c.Membership.ExpiryDate < today)
-                .Select(c => new ExpiredMemberViewModel
+            // Get all expired memberships
+            var expiredMembers = await _context.Subscriptions
+                .Include(s => s.Customer)
+                .Include(s => s.Membership)
+                .Where(s => s.EndDate < today)
+                .Select(s => new
                 {
-                    MemberID = c.CustomerID,
-                    Name = c.Name,
-                    PlanName = c.Membership.Type,
-                    ExpiryDate = c.Membership.ExpiryDate
+                    s.SubscriptionID,
+                    s.Customer.CustomerID,
+                    s.Customer.UserId,
+                    s.Customer.Name,
+                    s.Customer.Email,
+                    Plan = s.Membership.Type,
+                    ExpiryDate = s.EndDate,
+                    DaysExpired = EF.Functions.DateDiffDay(s.EndDate, today)
                 })
-                .ToList();
+                .ToListAsync();
 
+            // No expired members
             if (!expiredMembers.Any())
             {
-                ViewBag.Message = "No expired members found.";
+                ViewBag.Message = "🎉 Great news! No expired memberships found!";
+                return View(new List<object>());
             }
 
             return View(expiredMembers);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> SendReminder(int userId)
+        {
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null)
+                return NotFound();
+
+            // Create message for user's profile
+            var message = $"Hi {user.Username}, your gym membership has expired. Please renew it to continue accessing your classes.";
+
+            var notification = new Notification
+            {
+                UserId = userId,
+                Message = message,
+                DateSent = DateTime.UtcNow,
+                IsRead = false
+            };
+
+            _context.Notifications.Add(notification);
+            await _context.SaveChangesAsync();
+
+            TempData["Success"] = $"Reminder sent to {user.Username}'s profile successfully!";
+            return RedirectToAction(nameof(ExpiredMembers));
+        }
+
+
         // ✅ Active / Inactive Members Page
         public async Task<IActionResult> ActiveInactiveMembers()
         {
-            var members = await _context.Customers
-                .Include(c => c.Membership)
+            var now = DateTime.UtcNow;
+
+            var users = await _context.Users
+                .Include(u => u.Customer)
+                    .ThenInclude(c => c.Subscriptions)
+                        .ThenInclude(s => s.Membership)
+                .Include(u => u.Customer)
+                    .ThenInclude(c => c.Classes)
                 .ToListAsync();
 
-            ViewBag.ActiveMembers = members.Where(m => m.IsActive).ToList();
-            ViewBag.InactiveMembers = members.Where(m => !m.IsActive).ToList();
+            var activeMembers = users
+                .Where(u =>
+                    (u.Customer != null &&
+                     (
+                         (u.Customer.Subscriptions.Any(s => s.IsActive && s.EndDate > now)) ||
+                         (u.Customer.Classes.Any())
+                     ))
+                )
+                .Select(u => new
+                {
+                    u.UserId,
+                    Name = u.Username,
+                    Email = u.Email,
+                    Plan = u.Customer?.Subscriptions
+                                .OrderByDescending(s => s.StartDate)
+                                .FirstOrDefault(s => s.IsActive && s.EndDate > now)?.Membership?.Type ?? "—",
+                    Expiry = u.Customer?.Subscriptions
+                                .OrderByDescending(s => s.StartDate)
+                                .FirstOrDefault(s => s.IsActive && s.EndDate > now)?.EndDate,
+                    Classes = u.Customer?.Classes != null && u.Customer.Classes.Any()
+                                ? string.Join(", ", u.Customer.Classes.Select(c => c.ClassName))
+                                : "No classes"
+                })
+                .ToList();
+
+            var inactiveMembers = users
+                .Where(u =>
+                    u.Customer == null ||
+                    (
+                        (!u.Customer.Subscriptions.Any(s => s.IsActive && s.EndDate > now)) &&
+                        (!u.Customer.Classes.Any())
+                    )
+                )
+                .Select(u => new
+                {
+                    u.UserId,
+                    Name = u.Username,
+                    Email = u.Email,
+                    Plan = "—",
+                    Expiry = (DateTime?)null,
+                    Classes = "—"
+                })
+                .ToList();
+
+            ViewBag.ActiveMembers = activeMembers;
+            ViewBag.InactiveMembers = inactiveMembers;
 
             return View();
         }
+
 
         // ✅ Activate a member
         [HttpPost]
@@ -190,5 +275,8 @@ namespace Gym_Membership.Controllers
             TempData["Success"] = $"{customer.Name} has been deactivated.";
             return RedirectToAction(nameof(ActiveInactiveMembers));
         }
+
+      
+
     }
 }

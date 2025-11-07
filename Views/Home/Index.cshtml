@@ -9,6 +9,13 @@
 <!-- ===== HERO SECTION ===== -->
 <section class="hero-section text-center py-5 bg-dark text-light">
     <div class="container">
+        @if (TempData["Success"] != null)
+{
+    <div class="alert alert-success text-center shadow-sm rounded-4 p-3 mb-4">
+        <i class="bi bi-check-circle-fill me-2"></i>@TempData["Success"]
+    </div>
+}
+
         <!-- Title -->
         <h1 class="display-4 fw-bold mb-3 text-glow">
             Transform your body.<br />Track your progress.
@@ -27,9 +34,10 @@
                 <a asp-controller="Membership" asp-action="Plans" class="btn btn-neon-primary btn-lg px-4 py-2">
                     <i class="bi bi-person-lines-fill me-2"></i> View Plans
                 </a>
-                <a asp-controller="Classes" asp-action="Index" class="btn btn-outline-neon btn-lg px-4 py-2">
-                    <i class="bi bi-calendar-check me-2"></i> Browse Classes
+                <a asp-controller="Classes" asp-action="Browse" class="btn btn-outline-neon btn-lg px-4 py-2">
+                  <i class="bi bi-calendar-check me-2"></i> Browse Classes
                 </a>
+
             }
             else
             {
@@ -66,6 +74,30 @@
         </div>
     </div>
 </section>
+
+@if (ViewBag.ActiveSubscription != null)
+{
+    var sub = ViewBag.ActiveSubscription;
+    <div class="container mt-4">
+        <div class="subscription-card p-4 rounded-4 shadow-lg text-center text-light">
+            <h5 class="fw-bold mb-3 text-neon-green">
+                <i class="bi bi-lightning-charge-fill me-2"></i>
+                Active Plan: @sub.Membership.Type
+            </h5>
+
+            <div class="d-flex justify-content-center flex-column align-items-center">
+                <p class="mb-1 start-date">
+                    <strong>Start Date:</strong> @sub.StartDate.ToString("MMMM dd, yyyy")
+                </p>
+                <p class="mb-0 end-date">
+                    <strong>Expires On:</strong> @sub.EndDate.ToString("MMMM dd, yyyy")
+                </p>
+            </div>
+        </div>
+    </div>
+}
+
+
 
 <!-- ===== MODERN FEATURES SECTION ===== -->
 <section class="py-5 mt-5 bg-gradient-dark text-light">

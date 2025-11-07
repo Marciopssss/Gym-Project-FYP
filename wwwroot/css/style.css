@@ -226,6 +226,63 @@ body {
         transform: translateY(-3px);
     }
 
+.subscription-card {
+    background: linear-gradient(135deg, rgba(0, 40, 0, 0.85), rgba(0, 90, 40, 0.85));
+    border: 1px solid #00ff99;
+    box-shadow: 0 0 15px rgba(0, 255, 153, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .subscription-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 0 25px rgba(0, 255, 153, 0.5);
+    }
+
+.text-neon-green {
+    color: #00ff99;
+    text-shadow: 0 0 8px #00ff99;
+}
+
+.start-date {
+    color: #aaffaa;
+    font-weight: 500;
+}
+
+.end-date {
+    color: #ffd966;
+    font-weight: 500;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(15deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-15deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+h1 span {
+    display: inline-block;
+    animation: wave 1.5s infinite;
+    transform-origin: 70% 70%;
+}
+
+
+
 
 
 

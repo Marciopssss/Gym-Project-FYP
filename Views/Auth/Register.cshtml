@@ -3,52 +3,249 @@
     ViewData["Title"] = "Register";
 }
 
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card p-4 card-glow shadow-lg">
-            <h3 class="mb-3 text-center">Create your account</h3>
+<div class="d-flex align-items-center justify-content-center min-vh-100">
+    <div class="register-card glass-card p-5 shadow-lg">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold text-light">Create your account ✨</h2>
+            <p class="text-secondary small">Join Fitness Gym and manage your membership easily</p>
+        </div>
 
-            <form asp-action="Register" asp-controller="Auth" method="post">
-                <div class="mb-3">
-                    <label asp-for="FullName" class="form-label">Full Name</label>
-                    <input asp-for="FullName" class="form-control" placeholder="John Doe" required />
+        <form asp-action="Register" asp-controller="Auth" method="post">
+            <!-- Full Name -->
+            <div class="mb-4">
+                <label asp-for="FullName" class="form-label text-light fw-semibold">Full Name</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent text-secondary border-end-0">
+                        <i class="bi bi-person-vcard"></i>
+                    </span>
+                    <input asp-for="FullName" class="form-control border-start-0" placeholder="John Doe" required />
                 </div>
+            </div>
 
-                <div class="mb-3">
-                    <label asp-for="Username" class="form-label">Username</label>
-                    <input asp-for="Username" class="form-control" placeholder="Choose a username" required />
+            <!-- Username -->
+            <div class="mb-4">
+                <label asp-for="Username" class="form-label text-light fw-semibold">Username</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent text-secondary border-end-0">
+                        <i class="bi bi-person"></i>
+                    </span>
+                    <input asp-for="Username" class="form-control border-start-0" placeholder="Choose a username" required />
                 </div>
+            </div>
 
-                <div class="mb-3">
-                    <label asp-for="Email" class="form-label">Email</label>
-                    <input asp-for="Email" type="email" class="form-control" placeholder="you@example.com" required />
+            <!-- Email + Send Code -->
+            <div class="mb-4">
+                <label asp-for="Email" class="form-label text-light fw-semibold">Email</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent text-secondary border-end-0">
+                        <i class="bi bi-envelope"></i>
+                    </span>
+                    <input asp-for="Email" type="email" id="EmailInput" class="form-control border-start-0" placeholder="you@example.com" required />
+                    <button type="button" class="btn btn-outline-info" id="sendCodeBtn">
+                        <i class="bi bi-send"></i> Send Code
+                    </button>
                 </div>
+                <small id="codeStatus" class="text-success d-none mt-1">Verification code sent successfully ✅</small>
+            </div>
 
-                <div class="mb-3">
-                    <label asp-for="Password" class="form-label">Password</label>
-                    <input asp-for="Password" type="password" class="form-control" placeholder="••••••••" required />
+            <!-- Verification Code -->
+            <div class="mb-4">
+                <label for="verificationCode" class="form-label text-light fw-semibold">Verification Code</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent text-secondary border-end-0">
+                        <i class="bi bi-shield-lock"></i>
+                    </span>
+                    <input type="text" id="verificationCode" name="verificationCode" class="form-control border-start-0" placeholder="Enter the 6-digit code" required />
                 </div>
+            </div>
 
-                <button type="submit" class="btn btn-primary w-100">Create Account</button>
-            </form>
+            <!-- Password -->
+            <div class="mb-4">
+                <label asp-for="Password" class="form-label text-light fw-semibold">Password</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent text-secondary border-end-0">
+                        <i class="bi bi-lock"></i>
+                    </span>
+                    <input asp-for="Password" type="password" id="passwordField" class="form-control border-start-0" placeholder="••••••••" required />
+                    <button type="button" class="btn btn-outline-secondary border-start-0" id="togglePassword" tabindex="-1">
+                        <i class="bi bi-eye-slash" id="toggleIcon"></i>
+                    </button>
+                </div>
+            </div>
 
+            <!-- Confirm Password -->
+            <div class="mb-4">
+                <label for="ConfirmPassword" class="form-label text-light fw-semibold">Confirm Password</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-transparent text-secondary border-end-0">
+                        <i class="bi bi-shield-check"></i>
+                    </span>
+                    <input id="ConfirmPassword" name="ConfirmPassword" type="password" class="form-control border-start-0" placeholder="Re-enter password" required />
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold shadow-sm">
+                <i class="bi bi-person-plus-fill me-1"></i> Create Account
+            </button>
+
+            <!-- Error -->
             @if (ViewBag.Error != null)
             {
                 <div class="alert alert-danger mt-3">@ViewBag.Error</div>
             }
 
+            <!-- Login link -->
             <p class="text-secondary small mt-3 mb-0 text-center">
                 Already have an account?
-                <a asp-controller="Auth" asp-action="Login" class="text-light">Login here</a>
+                <a asp-controller="Auth" asp-action="Login" class="text-info fw-semibold">Login here</a>
             </p>
+        </form>
+
+        <!-- Divider -->
+        <div class="text-center mt-4 mb-2 text-secondary small">— OR —</div>
+
+        <!-- Google Sign-Up -->
+        <div class="text-center">
+            <a class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center gap-2 py-2"
+               asp-controller="Auth" asp-action="GoogleLogin">
+                <i class="bi bi-google fs-5"></i> Sign up with Google
+            </a>
         </div>
     </div>
 </div>
 
-<div class="text-center mt-3 text-secondary">or</div>
+@section Scripts {
+    <script>
+        // 👁 Toggle password visibility
+        const togglePassword = document.getElementById("togglePassword");
+        const passwordField = document.getElementById("passwordField");
+        const toggleIcon = document.getElementById("toggleIcon");
 
-<a class="btn btn-outline-light w-100 mt-2 d-flex align-items-center justify-content-center gap-2"
-   asp-controller="Auth" asp-action="GoogleLogin">
-    <img src="https://www.svgrepo.com/show/475656/google-color.svg" width="20" height="20" alt="">
-    Sign up with Google
-</a>
+        togglePassword.addEventListener("click", () => {
+            const isPassword = passwordField.type === "password";
+            passwordField.type = isPassword ? "text" : "password";
+            toggleIcon.classList.toggle("bi-eye");
+            toggleIcon.classList.toggle("bi-eye-slash");
+        });
+
+        // 📩 Send Code with cooldown
+        const sendBtn = document.getElementById("sendCodeBtn");
+        const emailInput = document.getElementById("EmailInput");
+        const codeStatus = document.getElementById("codeStatus");
+
+        sendBtn.addEventListener("click", async () => {
+            const email = emailInput.value;
+            if (!email) {
+                alert("Please enter your email first.");
+                return;
+            }
+
+            sendBtn.disabled = true;
+            sendBtn.innerHTML = '<span class="spinner-border spinner-border-sm"></span> Sending...';
+
+            const response = await fetch(`/Auth/SendVerificationCode?email=${encodeURIComponent(email)}`);
+            if (response.ok) {
+                codeStatus.classList.remove("d-none");
+                codeStatus.textContent = "✅ Code sent! Check your email.";
+                startCooldown();
+            } else {
+                alert("Failed to send code. Please check your email.");
+                resetButton();
+            }
+        });
+
+        // ⏳ 60-second cooldown timer
+        function startCooldown() {
+            let seconds = 60;
+            sendBtn.classList.replace("btn-outline-info", "btn-secondary");
+            const timer = setInterval(() => {
+                sendBtn.innerHTML = `Resend in ${seconds}s`;
+                seconds--;
+                if (seconds < 0) {
+                    clearInterval(timer);
+                    resetButton();
+                }
+            }, 1000);
+        }
+
+        // 🔁 Reset button to original state
+        function resetButton() {
+            sendBtn.disabled = false;
+            sendBtn.innerHTML = '<i class="bi bi-send"></i> Send Code';
+            sendBtn.classList.remove("btn-secondary");
+            sendBtn.classList.add("btn-outline-info");
+        }
+    </script>
+}
+
+<!-- CSS -->
+<style>
+    body {
+        background: radial-gradient(circle at top left, #0f172a, #1e293b, #0f172a);
+        min-height: 100vh;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        width: 420px;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .glass-card:hover {
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+    .form-control {
+        background: transparent;
+        color: #e5e5e5;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #00bfff;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+        }
+
+    .input-group-text, .btn-outline-secondary {
+        border-color: rgba(255, 255, 255, 0.1);
+        background-color: transparent;
+        color: #aaa;
+    }
+
+    .btn-primary {
+        background: linear-gradient(135deg, #007bff, #00bfff);
+        border: none;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #00a2ff, #0096c7);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+    .btn-outline-danger {
+        border: 1px solid #dc3545;
+        border-radius: 10px;
+        color: #dc3545;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+        .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: white;
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.3);
+        }
+</style>

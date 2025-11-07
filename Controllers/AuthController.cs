@@ -1,23 +1,24 @@
 ﻿using Gym_Membership.Data;
 using Gym_Membership.Models;
-using Microsoft.AspNetCore.Mvc;
+using Gym_Membership.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Security.Claims;
-
 
 namespace Gym_Membership.Controllers
 {
     public class AuthController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly EmailService _emailService;
 
-        public AuthController(ApplicationDbContext context)
+        public AuthController(ApplicationDbContext context, EmailService emailService)
         {
             _context = context;
+            _emailService = emailService;
         }
 
         // ---------- LOGIN ----------
@@ -48,7 +49,8 @@ namespace Gym_Membership.Controllers
         public IActionResult Register() => View();
 
         [HttpPost]
-        public IActionResult Register(User user)
+        [HttpPost]
+        public async Task<IActionResult> Register(User user, string verificationCode)
         {
             if (ModelState.IsValid)
             {
@@ -58,11 +60,30 @@ namespace Gym_Membership.Controllers
                     return View(user);
                 }
 
-                // Default new users as normal Users
-                user.Role = "User";
+                // ✅ Verify the code
+                var sessionCode = HttpContext.Session.GetString("VerificationCode");
+                var sessionEmail = HttpContext.Session.GetString("VerificationEmail");
 
+                if (sessionCode == null || sessionEmail == null)
+                {
+                    ViewBag.Error = "Please verify your email before signing up.";
+                    return View(user);
+                }
+
+                if (user.Email != sessionEmail || verificationCode != sessionCode)
+                {
+                    ViewBag.Error = "Invalid verification code.";
+                    return View(user);
+                }
+
+                // ✅ Save user if code is valid
+                user.Role = "User";
                 _context.Users.Add(user);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
+
+                // Clear session
+                HttpContext.Session.Remove("VerificationCode");
+                HttpContext.Session.Remove("VerificationEmail");
 
                 return RedirectToAction("Login");
             }
@@ -70,20 +91,21 @@ namespace Gym_Membership.Controllers
             return View(user);
         }
 
+
         // ---------- LOGOUT ----------
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
             return RedirectToAction("Login");
         }
-        
 
-public IActionResult GoogleLogin()
-    {
-        var redirectUrl = Url.Action("GoogleResponse", "Auth");
-        var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
-        return Challenge(properties, GoogleDefaults.AuthenticationScheme);
-    }
+        // ---------- GOOGLE LOGIN ----------
+        public IActionResult GoogleLogin()
+        {
+            var redirectUrl = Url.Action("GoogleResponse", "Auth");
+            var properties = new AuthenticationProperties { RedirectUri = redirectUrl };
+            return Challenge(properties, GoogleDefaults.AuthenticationScheme);
+        }
 
         [HttpGet]
         public async Task<IActionResult> GoogleResponse()
@@ -97,30 +119,26 @@ public IActionResult GoogleLogin()
                 return RedirectToAction("Login", "Auth");
             }
 
-            // Extract user info from Google claims
             var email = claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
             var name = claims.FirstOrDefault(c => c.Type == ClaimTypes.Name)?.Value;
 
-            // ✅ New safety check
             if (string.IsNullOrEmpty(email))
             {
                 TempData["Error"] = "Your Google account did not return an email address. Please enable email access or use another account.";
                 return RedirectToAction("Login", "Auth");
             }
 
-            // Check if user already exists
             var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
             if (existingUser == null)
             {
-                // Create new user if not exists
                 var newUser = new User
                 {
                     Username = name ?? email.Split('@')[0],
                     FullName = name,
                     Email = email,
                     Role = "User",
-                    Password = null // ✅ Google users don't need a password
+                    Password = null
                 };
 
                 _context.Users.Add(newUser);
@@ -129,14 +147,13 @@ public IActionResult GoogleLogin()
                 existingUser = newUser;
             }
 
-            // ✅ Log the user in
             HttpContext.Session.SetString("Username", existingUser.Username);
             HttpContext.Session.SetString("Role", existingUser.Role);
 
             return RedirectToAction("Index", "Home");
         }
 
-
+        // ---------- EXTERNAL LOGIN ----------
         [HttpGet]
         public IActionResult ExternalLogin(string provider, string? returnUrl = null)
         {
@@ -148,9 +165,31 @@ public IActionResult GoogleLogin()
         public async Task<IActionResult> ExternalLoginCallback(string? returnUrl = null)
         {
             var result = await HttpContext.AuthenticateAsync();
-            // or use HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme)
-            // … map Google claims (email, name) to your User model, auto-create if new, sign in, etc.
             return Redirect(returnUrl ?? Url.Action("Index", "Home")!);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> SendVerificationCode(string email)
+        {
+            if (string.IsNullOrEmpty(email))
+                return BadRequest("Email is required");
+
+            // Generate random 6-digit code
+            string code = new Random().Next(100000, 999999).ToString();
+
+            // Store it temporarily (in session)
+            HttpContext.Session.SetString("VerificationCode", code);
+            HttpContext.Session.SetString("VerificationEmail", email);
+
+            // Send the code to the user's email
+            await _emailService.SendEmailAsync(
+                email,
+                "Fitness Gym – Email Verification Code",
+                $"<h2>Your verification code is:</h2><h1>{code}</h1><p>Enter this code on the registration page to complete signup.</p>"
+            );
+
+            return Ok();
+        }
+
     }
 }

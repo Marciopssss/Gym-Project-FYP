@@ -21,6 +21,11 @@ namespace Gym_Membership.Models
         public string? ImagePath { get; set; }
         public string Description { get; set; }
 
+        [Required(ErrorMessage = "Price per session is required")]
+        [Range(1, 1000, ErrorMessage = "Price must be between $1 and $1000")]
+        public decimal PricePerSession { get; set; }
+
+
         // ✅ Optional relationships — not required when creating a class
         public int? StaffID { get; set; }
         public Staff? Staff { get; set; }

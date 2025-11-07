@@ -2,59 +2,121 @@
     ViewData["Title"] = "Admin Dashboard";
 }
 
-<div class="container mt-5">
-    <div class="text-center mb-5">
-        <h1 class="display-5 fw-bold text-light">Welcome, Admin 👋</h1>
-        <p class="text-secondary">Manage users, classes, and memberships from one place.</p>
+<div class="container py-5 text-center text-light">
+
+    <!-- Title Section -->
+    <h1 class="fw-bold mb-2">Welcome, <span class="text-info">Admin 👋</span></h1>
+    <p class="text-secondary mb-5">Manage users, classes, and memberships from one place.</p>
+
+    <!-- Statistic Cards -->
+    <div class="row g-4 mb-5 justify-content-center">
+        <div class="col-md-3">
+            <div class="card bg-dark border-0 shadow-lg h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase text-secondary small">Total Users</h5>
+                    <h2 class="text-primary fw-bold">@ViewBag.TotalUsers</h2>
+                    <i class="bi bi-people fs-3 text-primary"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-dark border-0 shadow-lg h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase text-secondary small">Total Members</h5>
+                    <h2 class="text-success fw-bold">@ViewBag.TotalMembers</h2>
+                    <i class="bi bi-person-check fs-3 text-success"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-dark border-0 shadow-lg h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase text-secondary small">Total Staff</h5>
+                    <h2 class="text-warning fw-bold">@ViewBag.TotalStaff</h2>
+                    <i class="bi bi-person-badge fs-3 text-warning"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-dark border-0 shadow-lg h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase text-secondary small">Total Classes</h5>
+                    <h2 class="text-info fw-bold">@ViewBag.TotalClasses</h2>
+                    <i class="bi bi-journal-text fs-3 text-info"></i>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="row g-4 justify-content-center">
-        <div class="col-md-3">
-            <div class="card text-center bg-dark border-secondary shadow-sm p-3">
-                <h5>Total Users</h5>
-                <h2 class="text-primary">@ViewBag.TotalUsers</h2>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card text-center bg-dark border-secondary shadow-sm p-3">
-                <h5>Total Members</h5>
-                <h2 class="text-success">@ViewBag.TotalMembers</h2>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card text-center bg-dark border-secondary shadow-sm p-3">
-                <h5>Total Staff</h5>
-                <h2 class="text-warning">@ViewBag.TotalStaff</h2>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card text-center bg-dark border-secondary shadow-sm p-3">
-                <h5>Total Classes</h5>
-                <h2 class="text-info">@ViewBag.TotalClasses</h2>
-            </div>
-        </div>
-    </div>
+    <!-- Button Section -->
+    <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
 
-    <div class="text-center mt-5">
-        <a asp-controller="Home" asp-action="Index" class="btn btn-outline-light">Go to Homepage</a>
+        <a asp-controller="Home" asp-action="Index"
+           class="btn btn-outline-light btn-lg rounded-pill px-4 py-2 shadow-sm">
+            <i class="bi bi-house-door"></i> Go to Homepage
+        </a>
+
+        <a asp-controller="Membership" asp-action="Index"
+           class="btn btn-outline-primary btn-lg rounded-pill px-4 py-2 shadow-sm">
+            <i class="bi bi-card-checklist"></i> Manage Memberships
+        </a>
+
+        <a asp-controller="AdminUsers" asp-action="Index"
+           class="btn btn-outline-info btn-lg rounded-pill px-4 py-2 shadow-sm">
+            <i class="bi bi-people-fill"></i> Manage Users
+        </a>
+
+        <a asp-controller="Admin" asp-action="ActiveInactiveMembers"
+           class="btn btn-outline-success btn-lg rounded-pill px-4 py-2 shadow-sm">
+            <i class="bi bi-person-gear"></i> View Active / Inactive Members
+        </a>
+
+        <a asp-controller="Classes" asp-action="Index"
+           class="btn btn-outline-warning btn-lg rounded-pill px-4 py-2 shadow-sm">
+            <i class="bi bi-easel2"></i> Manage Classes
+        </a>
+
+        <a asp-controller="Admin" asp-action="ExpiredMembers"
+           class="btn btn-outline-danger btn-lg rounded-pill px-4 py-2 shadow-sm">
+            <i class="bi bi-clock-history"></i> View Expired Members Report
+        </a>
     </div>
 </div>
 
-<div class="text-center mt-4">
-    <a asp-controller="Membership" asp-action="Index" class="btn btn-outline-primary">
-        Manage Memberships
-    </a>
-</div>
-<a asp-controller="AdminUsers" asp-action="Index" class="btn btn-outline-info w-100 mb-3">
-    Manage Users
-</a>
-<a asp-controller="Admin" asp-action="ExpiredMembers" class="btn btn-warning mt-3">
-    View Expired Members Report
-</a>
+<!-- Styling -->
+<style>
+    body {
+        background-color: #1c1f23;
+    }
 
-<a class="btn btn-outline-light mt-3" asp-controller="Classes" asp-action="Index">
-    Manage Classes
-</a>
-<a asp-controller="Admin" asp-action="ActiveInactiveMembers" class="btn btn-outline-info">
-    View Active / Inactive Members
-</a>
+    .card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 1rem;
+    }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+        }
+
+    .btn {
+        transition: all 0.3s ease-in-out;
+        border-width: 2px;
+    }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+        }
+
+    h1 span {
+        display: inline-block;
+        animation: wave 1.5s infinite;
+        transform-origin: 70% 70%;
+    }
+
+    
+</style>

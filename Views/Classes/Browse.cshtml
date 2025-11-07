@@ -1,113 +1,55 @@
-﻿@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor HttpContextAccessor
-@model IEnumerable<Gym_Membership.Models.Classes>
+﻿@model IEnumerable<Gym_Membership.Models.Classes>
 
 @{
     ViewData["Title"] = "Browse Classes";
-    var username = HttpContextAccessor.HttpContext.Session.GetString("Username");
-
-    // Default class images
-    string GetDefaultImage(string type)
-    {
-        return type?.ToLower() switch
-        {
-            "yoga" => "/images/classes/yoga.jpg",
-            "cardio" => "/images/classes/cardio.jpg",
-            "strength" => "/images/classes/strength.jpg",
-            "pilates" => "/images/classes/pilates.jpg",
-            "boxing" => "/images/classes/boxing.jpg",
-            _ => "/images/classes/default.jpg"
-        };
-    }
 }
 
-<section class="py-5 bg-dark text-light">
-    <div class="container">
-        <h2 class="fw-bold mb-4 text-info text-center text-uppercase">Explore Our Classes</h2>
+<div class="container mt-5">
+    <h2 class="text-center fw-bold text-info mb-4">
+        <i class="bi bi-calendar2-check"></i> Browse Available Classes
+    </h2>
 
-        @if (!Model.Any())
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-warning text-center">@TempData["Error"]</div>
+    }
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success text-center">@TempData["Success"]</div>
+    }
+
+    <div class="row g-4">
+        @foreach (var c in Model)
         {
-            <div class="text-center text-secondary mt-5">
-                <h5>No classes available yet. Please check back soon!</h5>
-            </div>
-        }
-        else
-        {
-            <div class="row g-4 justify-content-center">
-                @foreach (var c in Model)
-                {
-                    var imageUrl = !string.IsNullOrWhiteSpace(c.ImagePath) ? c.ImagePath : GetDefaultImage(c.ClassName);
+            <div class="col-md-4">
+                <div class="card bg-dark text-light border border-info shadow-lg h-100">
+                    <img src="~/images/classes/@(c.ImagePath ?? "default-class.jpg")"
+                         class="card-img-top rounded-top"
+                         style="height: 220px; object-fit: cover;" alt="@c.ClassName" />
 
-                    <div class="col-md-4 col-lg-3">
-                        <div class="card shadow-lg bg-dark text-light h-100 border-0 rounded-4 overflow-hidden hover-zoom">
-                            <img src="@imageUrl"
-                                 alt="@c.ClassName"
-                                 class="card-img-top"
-                                 style="height: 220px; object-fit: cover; filter: brightness(0.9);" />
+                    <div class="card-body text-center">
+                        <h5 class="fw-bold text-info mb-1">@c.ClassName</h5>
+                        <p class="text-secondary small mb-1">Trainer: @c.TrainerName</p>
+                        <p class="text-muted mb-2">
+                            <i class="bi bi-clock"></i>
+                            @c.ScheduleTime.ToString("MMM dd, yyyy hh:mm tt")
+                        </p>
+                        <p class="text-muted">Duration: @c.Duration min</p>
+                        <p class="text-info fw-semibold mb-2">
+                            <i class="bi bi-cash-stack"></i> $@c.PricePerSession per session
+                        </p>
 
-                            <div class="card-body text-center p-4">
-                                <h4 class="fw-bold text-uppercase text-info">@c.ClassName</h4>
-                                <p class="text-muted small mb-3">@c.Description</p>
-                                <h6 class="text-light mb-3">@c.ScheduleTime.ToString("dddd, h:mm tt")</h6>
 
-                                @if (username != null)
-                                {
-                                    <form method="post" asp-action="Subscribe" asp-route-id="@c.ClassID">
-                                        <button type="submit" class="btn btn-neon-primary px-4">Subscribe</button>
-                                    </form>
-                                }
-                                else
-                                {
-                                    <button class="btn btn-outline-neon px-4"
-                                            data-bs-toggle="modal" data-bs-target="#loginPromptModal">
-                                        Subscribe
-                                    </button>
-                                }
-                            </div>
-                        </div>
+                        <form asp-action="SubscribeWithStripe" method="post">
+                            <input type="hidden" name="classId" value="@c.ClassID" />
+                            <button type="submit" class="btn btn-neon-primary w-100 mt-2">
+                                <i class="bi bi-credit-card"></i> Pay & Subscribe
+                            </button>
+                        </form>
+
                     </div>
-                }
-            </div>
-        }
-    </div>
-</section>
-
-<!-- 🔒 LOGIN PROMPT -->
-<div class="modal fade" id="loginPromptModal" tabindex="-1" aria-labelledby="loginPromptLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-dark text-light border border-info shadow-lg">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-info fw-bold" id="loginPromptLabel">Login Required</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body text-center">
-                <p class="mb-4 fs-5">You need to log in or sign up to subscribe to a class.</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a asp-controller="Auth" asp-action="Login" class="btn btn-info px-4">
-                        <i class="bi bi-box-arrow-in-right me-2"></i> Log In
-                    </a>
-                    <a asp-controller="Auth" asp-action="Register" class="btn btn-outline-info px-4">
-                        <i class="bi bi-person-plus me-2"></i> Sign Up
-                    </a>
                 </div>
             </div>
-        </div>
+        }
     </div>
 </div>
-
-<style>
-    .hover-zoom img {
-        transition: transform 0.5s ease, filter 0.4s ease;
-    }
-
-    .hover-zoom:hover img {
-        transform: scale(1.05);
-        filter: brightness(1.1);
-    }
-
-    .card:hover {
-        box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
-        transform: translateY(-6px);
-        transition: all 0.3s ease;
-    }
-</style>

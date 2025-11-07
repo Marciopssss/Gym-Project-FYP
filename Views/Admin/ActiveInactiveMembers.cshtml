@@ -2,69 +2,111 @@
     ViewData["Title"] = "Active & Inactive Members";
 }
 
-<h2 class="mb-4">Active Members</h2>
+<h2 class="mb-4 text-success fw-bold">Active Members</h2>
 
-<table class="table table-dark table-striped">
-    <thead>
+<table class="table table-dark table-striped table-hover text-center align-middle shadow-sm rounded-4">
+    <thead class="table-secondary text-dark">
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Email</th>
             <th>Plan</th>
-            <th>Expiry Date</th>
+            <th>Expiry</th>
+            <th>Classes</th>
             <th>Status</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var member in ViewBag.ActiveMembers)
+        @if (ViewBag.ActiveMembers != null && ViewBag.ActiveMembers.Count > 0)
+        {
+            foreach (var member in ViewBag.ActiveMembers)
+            {
+                <tr>
+                    <td>@member.UserId</td>
+                    <td class="fw-semibold">@member.Name</td>
+                    <td>@member.Email</td>
+                    <td>@member.Plan</td>
+                    <td>
+                        @(member.Expiry != null
+                                        ? ((DateTime)member.Expiry).ToString("MM/dd/yyyy")
+                                        : "—")
+            </td>
+            <td>@member.Classes</td>
+            <td>
+                <span class="badge bg-success px-3 py-2 shadow-sm">Active</span>
+            </td>
+            <td>
+                <form asp-action="DeactivateMember" asp-controller="Admin" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="@member.UserId" />
+                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                        <i class="bi bi-person-dash"></i> Deactivate
+                    </button>
+                </form>
+            </td>
+        </tr>
+                }
+        }
+        else
         {
             <tr>
-                <td>@member.MemberID</td>
-                <td>@member.Name</td>
-                <td>@member.PlanName</td>
-                <td>@member.ExpiryDate.ToShortDateString()</td>
-                <td><span class="badge bg-success">Active</span></td>
-                <td>
-                    <form asp-action="DeactivateMember" asp-controller="Admin" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="@member.MemberID" />
-                        <button type="submit" class="btn btn-danger btn-sm">Deactivate</button>
-                    </form>
-                </td>
+                <td colspan="8" class="text-secondary py-3">No active members found</td>
             </tr>
         }
     </tbody>
 </table>
 
-<hr />
+<hr class="my-5" />
 
-<h2 class="mb-4">Inactive Members</h2>
+<h2 class="mb-4 text-secondary fw-bold">Inactive Members</h2>
 
-<table class="table table-dark table-striped">
-    <thead>
+<table class="table table-dark table-striped table-hover text-center align-middle shadow-sm rounded-4">
+    <thead class="table-secondary text-dark">
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Email</th>
             <th>Plan</th>
-            <th>Expiry Date</th>
+            <th>Expiry</th>
+            <th>Classes</th>
             <th>Status</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var member in ViewBag.InactiveMembers)
+        @if (ViewBag.InactiveMembers != null && ViewBag.InactiveMembers.Count > 0)
+        {
+            foreach (var member in ViewBag.InactiveMembers)
+            {
+                <tr>
+                    <td>@member.UserId</td>
+                    <td class="fw-semibold">@member.Name</td>
+                    <td>@member.Email</td>
+                    <td>@member.Plan</td>
+                    <td>
+                        @(member.Expiry != null
+                                        ? ((DateTime)member.Expiry).ToString("MM/dd/yyyy")
+                                        : "—")
+            </td>
+            <td>@member.Classes</td>
+            <td>
+                <span class="badge bg-secondary px-3 py-2 shadow-sm">Inactive</span>
+            </td>
+            <td>
+                <form asp-action="ActivateMember" asp-controller="Admin" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="@member.UserId" />
+                    <button type="submit" class="btn btn-outline-success btn-sm">
+                        <i class="bi bi-person-check"></i> Activate
+                    </button>
+                </form>
+            </td>
+        </tr>
+                }
+        }
+        else
         {
             <tr>
-                <td>@member.MemberID</td>
-                <td>@member.Name</td>
-                <td>@member.PlanName</td>
-                <td>@member.ExpiryDate.ToShortDateString()</td>
-                <td><span class="badge bg-secondary">Inactive</span></td>
-                <td>
-                    <form asp-action="ActivateMember" asp-controller="Admin" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="@member.MemberID" />
-                        <button type="submit" class="btn btn-success btn-sm">Activate</button>
-                    </form>
-                </td>
+                <td colspan="8" class="text-secondary py-3">No inactive members found</td>
             </tr>
         }
     </tbody>
@@ -72,5 +114,7 @@
 
 @if (TempData["Success"] != null)
 {
-    <div class="alert alert-success mt-3">@TempData["Success"]</div>
+    <div class="alert alert-success text-center mt-4 shadow-sm">
+        <i class="bi bi-check-circle-fill"></i> @TempData["Success"]
+    </div>
 }
