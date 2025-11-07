@@ -3,22 +3,64 @@
     ViewData["Title"] = "Edit Membership";
 }
 
-<h2>Edit Membership</h2>
+<h2 class="mb-3">Edit Membership</h2>
 
-<form asp-action="Edit" method="post" class="mt-3">
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<form asp-action="Edit" method="post">
+    @Html.AntiForgeryToken()
     <input type="hidden" asp-for="MembershipID" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
     <div class="mb-3">
         <label asp-for="Type" class="form-label"></label>
-        <input asp-for="Type" class="form-control" />
+        <select asp-for="Type" class="form-select" required>
+            <option>Basic</option>
+            <option>Premium</option>
+            <option>Student</option>
+        </select>
+        <span asp-validation-for="Type" class="text-danger"></span>
     </div>
+
     <div class="mb-3">
         <label asp-for="Duration" class="form-label"></label>
-        <input asp-for="Duration" class="form-control" />
+        <input asp-for="Duration" class="form-control" type="number" min="1" required />
+        <span asp-validation-for="Duration" class="text-danger"></span>
     </div>
+
     <div class="mb-3">
         <label asp-for="Price" class="form-label"></label>
-        <input asp-for="Price" class="form-control" />
+        <input asp-for="Price" class="form-control" type="number" step="0.01" min="0" required />
+        <span asp-validation-for="Price" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-success">Update</button>
+
+    <div class="mb-3">
+        <label asp-for="StartDate" class="form-label"></label>
+        <input asp-for="StartDate" class="form-control" type="date" required />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="description" class="form-label"></label>
+        <textarea asp-for="description" class="form-control" rows="3" placeholder="Optional description"></textarea>
+        <span asp-validation-for="description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ImagePath" class="form-label"></label>
+        <input asp-for="ImagePath" class="form-control" placeholder="Optional image URL" />
+        <span asp-validation-for="ImagePath" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update</button>
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

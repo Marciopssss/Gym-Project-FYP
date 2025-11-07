@@ -1,129 +1,57 @@
-﻿@using Microsoft.AspNetCore.Http
-@inject IHttpContextAccessor HttpContextAccessor
-@model IEnumerable<Gym_Membership.Models.Membership>
-
+﻿@model IEnumerable<Gym_Membership.Models.Membership>
 @{
     ViewData["Title"] = "Membership Plans";
-    var username = HttpContextAccessor.HttpContext.Session.GetString("Username");
-
-    // 🧠 Default images by membership type
-    string GetDefaultImage(string type)
-    {
-        return type?.ToLower() switch
-        {
-            "basic" => "/images/memberships/basic.jpg",
-            "premium" => "/images/memberships/premium.jpg",
-            "student" => "/images/memberships/student.jpg",
-            "vip" => "/images/memberships/vip.jpg",
-            _ => "/images/memberships/basic.jpg" // fallback
-        };
-    }
-
-
-    // 🧾 Default descriptions
-    string GetDescription(string type)
-    {
-        return type?.ToLower() switch
-        {
-            "basic" => "Access all gym facilities during standard hours — perfect for consistent self-guided training.",
-            "student" => "Special student discount! Enjoy full gym access and group sessions with a valid student ID.",
-            "premium" => "Unlimited access with advanced workout zones, group classes, and one-on-one trainer support.",
-            "vip" => "All-inclusive VIP access — spa, nutrition plan, personal trainer & 24/7 gym entry with priority support.",
-            _ => "A flexible gym plan designed to fit your fitness goals and schedule."
-        };
-    }
 }
 
-<section class="py-5 bg-dark text-light">
-    <div class="container">
-        <h2 class="fw-bold mb-4 text-info text-center text-uppercase">Choose Your Membership Plan</h2>
+<h2 class="text-center mb-4">Available Membership Plans</h2>
 
-        @if (!Model.Any())
+<div class="container">
+    <div class="row justify-content-center">
+        @foreach (var plan in Model)
         {
-            <div class="text-center text-secondary mt-5">
-                <h5>No membership plans available yet. Please check back later.</h5>
-            </div>
-        }
-        else
-        {
-            <div class="row g-4 justify-content-center">
-                @foreach (var plan in Model)
-                {
-                    var imageUrl = !string.IsNullOrWhiteSpace(plan.ImagePath)
-                    ? plan.ImagePath
-                    : GetDefaultImage(plan.Type);
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-0">
 
-                    var description = GetDescription(plan.Type);
+                    
+                    @{
+                        string imagePath = plan.Type.ToLower() switch
+                        {
+                            "basic" => "/images/memberships/basic.jpg",
+                            "premium" => "/images/memberships/premium.jpg",
+                            "student" => "/images/memberships/student.jpg",
+                            _ => "/images/memberships/default.jpg" 
+                        };
+                    }
 
-                    <div class="col-md-4 col-lg-3">
-                        <div class="card plan-card shadow-lg bg-dark text-light h-100 border-0 rounded-4 overflow-hidden hover-zoom">
-                            <img src="@imageUrl"
-                                 alt="@plan.Type"
-                                 class="card-img-top"
-                                 style="height: 220px; object-fit: cover; filter: brightness(0.9);" />
+                    <img src="@imagePath"
+                         class="card-img-top"
+                         alt="@plan.Type Plan"
+                         style="height: 220px; object-fit: cover; border-top-left-radius: 12px; border-top-right-radius: 12px;" />
 
-                            <div class="card-body text-center p-4">
-                                <h4 class="fw-bold text-uppercase text-info">@plan.Type</h4>
-                                <p class="text-muted small mb-3">@description</p>
-                                <h5 class="text-light mb-3">$@(plan.Price.ToString("0.##") ?? "0") / month</h5>
+                    <div class="card-body text-center">
+                        <h4 class="card-title text-primary">@plan.Type</h4>
+                        <p class="card-text mb-2"><strong>Duration:</strong> @plan.Duration month(s)</p>
+                        <p class="card-text mb-2"><strong>Price:</strong> $@plan.Price</p>
 
-                                @if (username != null)
-                                {
-                                    <a asp-controller="Payments" asp-action="Checkout" asp-route-id="@plan.MembershipID"
-                                       class="btn btn-outline-light rounded-pill">Subscribe</a>
-                                }
-                                else
-                                {
-                                    <button class="btn btn-outline-neon px-4"
-                                            data-bs-toggle="modal" data-bs-target="#loginPromptModal">
-                                        Subscribe
-                                    </button>
-                                }
-                            </div>
-                        </div>
+                        @if (!string.IsNullOrEmpty(plan.description))
+                        {
+                            <p class="card-text text-muted small">@plan.description</p>
+                        }
+
+                        <form asp-controller="Subscription" asp-action="Subscribe" method="post">
+                            <input type="hidden" name="membershipId" value="@plan.MembershipID" />
+                            <button type="submit" class="btn btn-success w-100 mt-2">Subscribe</button>
+                        </form>
+
                     </div>
-                }
-            </div>
-        }
-    </div>
-</section>
-
-<!-- 🔒 LOGIN PROMPT -->
-<div class="modal fade" id="loginPromptModal" tabindex="-1" aria-labelledby="loginPromptLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-dark text-light border border-info shadow-lg">
-            <div class="modal-header border-0">
-                <h5 class="modal-title text-info fw-bold" id="loginPromptLabel">Login Required</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body text-center">
-                <p class="mb-4 fs-5">You need to log in or sign up to subscribe to a membership.</p>
-                <div class="d-flex justify-content-center gap-3">
-                    <a asp-controller="Auth" asp-action="Login" class="btn btn-info px-4">
-                        <i class="bi bi-box-arrow-in-right me-2"></i> Log In
-                    </a>
-                    <a asp-controller="Auth" asp-action="Register" class="btn btn-outline-info px-4">
-                        <i class="bi bi-person-plus me-2"></i> Sign Up
-                    </a>
                 </div>
             </div>
-        </div>
+        }
     </div>
 </div>
 
-<style>
-    .hover-zoom img {
-        transition: transform 0.5s ease, filter 0.4s ease;
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-
-    .hover-zoom:hover img {
-        transform: scale(1.05);
-        filter: brightness(1.1);
-    }
-
-    .plan-card:hover {
-        box-shadow: 0 0 25px rgba(0, 255, 255, 0.15);
-        transform: translateY(-6px);
-        transition: all 0.3s ease;
-    }
-</style>
+}

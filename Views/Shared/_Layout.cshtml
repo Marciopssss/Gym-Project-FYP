@@ -32,8 +32,14 @@
             <div class="collapse navbar-collapse" id="navMain">
                 <ul class="navbar-nav ms-auto gap-2 align-items-center">
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-controller="Memberships" asp-action="Index">Memberships</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Membership" asp-action="Index">Memberships</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Classes" asp-action="Index">Classes</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Classes" asp-action="Browse">Browse Classes</a>
+                    </li>
+
                     <li class="nav-item"><a class="nav-link" asp-controller="Employees" asp-action="Index">Trainers</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a></li>
 

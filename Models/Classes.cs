@@ -18,6 +18,8 @@ namespace Gym_Membership.Models
 
         [Required(ErrorMessage = "Trainer name is required")]
         public string TrainerName { get; set; }
+        public string? ImagePath { get; set; }
+        public string Description { get; set; }
 
         // ✅ Optional relationships — not required when creating a class
         public int? StaffID { get; set; }

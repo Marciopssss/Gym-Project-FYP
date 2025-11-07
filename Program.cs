@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// ✅ Configure Authentication (Google + Cookie)
 builder.Services
     .AddAuthentication(options =>
     {
@@ -15,64 +17,61 @@ builder.Services
         options.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
     })
     .AddCookie()
-   .AddGoogle(options =>
-   {
-       options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
-       options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-       options.SaveTokens = true;
-       options.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
-       options.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
-   });
+    .AddGoogle(options =>
+    {
+        options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+        options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+        options.SaveTokens = true;
+        options.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
+        options.ClaimActions.MapJsonKey(ClaimTypes.Name, "name");
+    });
 
-
-
-
-// Add services
+// ✅ Add essential services
 builder.Services.AddControllersWithViews();
-
-// ✅ Add HttpContextAccessor for session use
 builder.Services.AddHttpContextAccessor();
-
-// ✅ Add Session
 builder.Services.AddSession();
 
-// ✅ Register your DbContext
+// ✅ Database context
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
+// ✅ Proper Middleware Order (very important!)
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    app.UseHsts();
+}
 
-// Middleware
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
+// 🔑 Authentication & Authorization always before session
+app.UseAuthentication();
+app.UseAuthorization();
+
+// ✅ Then use session
 app.UseSession();
-app.UseAuthentication();
-app.UseAuthorization();
 
-
-app.UseAuthentication();
-app.UseAuthorization();
+// ✅ Map the default controller route
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-
-
+// ✅ Seed admin (optional)
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-    // ✅ Create admin if not exists
     if (!db.Users.Any(u => u.Role == "Admin"))
     {
         var admin = new User
         {
             Username = "admin",
-            Password = "admin123", // 🔒 you can later hash this
+            Password = "admin123",
             Email = "admin@gym.com",
             FullName = "System Administrator",
             Role = "Admin"
@@ -82,6 +81,5 @@ using (var scope = app.Services.CreateScope())
         db.SaveChanges();
     }
 }
-
 
 app.Run();

@@ -14,88 +14,125 @@ namespace Gym_Membership.Controllers
             _context = context;
         }
 
-        // GET: Memberships
+        // GET: Membership
         public async Task<IActionResult> Index()
         {
-            var memberships = await _context.Memberships.ToListAsync();
+            var memberships = await _context.Memberships.AsNoTracking().ToListAsync();
             return View(memberships);
         }
+        // GET: Membership/Plans
+        public async Task<IActionResult> Plans()
+        {
+            var plans = await _context.Memberships.AsNoTracking().ToListAsync();
+            return View(plans);
+        }
 
-        // GET: Memberships/Create
+
+        // GET: Membership/Create
         public IActionResult Create()
         {
-            return View();
+            return View(new Membership());
         }
 
-        // POST: Memberships/Create
+        // POST: Membership/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Membership membership)
+        public async Task<IActionResult> Create(Membership model)
         {
-            if (ModelState.IsValid)
+            // Default StartDate if left empty
+            if (model.StartDate == DateTime.MinValue)
+                model.StartDate = DateTime.Now;
+
+            // Debug log (you can remove later)
+            Console.WriteLine($"DEBUG: Type={model.Type}, Duration={model.Duration}, Price={model.Price}, StartDate={model.StartDate}");
+
+            if (!ModelState.IsValid)
             {
-                _context.Add(membership);
+                TempData["Error"] = "Please fill in all required fields correctly.";
+                return View(model);
+            }
+
+            try
+            {
+                _context.Memberships.Add(model);
                 await _context.SaveChangesAsync();
-
-                // ✅ Store success message in TempData
-                TempData["SuccessMessage"] = "Membership added successfully!";
-
+                TempData["SuccessMessage"] = "Membership created successfully!";
                 return RedirectToAction(nameof(Index));
             }
-
-            // If validation fails, redisplay the form with validation messages
-            return View(membership);
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Database error: " + ex.Message;
+                return View(model);
+            }
         }
 
-        // GET: Memberships/Edit/5
+        // GET: Membership/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
 
-            var membership = await _context.Memberships.FindAsync(id);
-            if (membership == null) return NotFound();
+            var membership = await _context.Memberships.FindAsync(id.Value);
+            if (membership == null)
+                return NotFound();
 
             return View(membership);
         }
 
-        // POST: Memberships/Edit/5
+        // POST: Membership/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Membership membership)
+        public async Task<IActionResult> Edit(int id, Membership model)
         {
-            if (id != membership.MembershipID) return NotFound();
+            if (id != model.MembershipID)
+                return NotFound();
 
-            if (ModelState.IsValid)
+            if (model.StartDate == DateTime.MinValue)
+                model.StartDate = DateTime.Now;
+
+            if (!ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(membership);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.Memberships.Any(e => e.MembershipID == membership.MembershipID))
-                        return NotFound();
-                    else
-                        throw;
-                }
+                TempData["Error"] = "Please fill in all required fields correctly.";
+                return View(model);
             }
-            return View(membership);
+
+            try
+            {
+                _context.Update(model);
+                await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Membership updated successfully!";
+                return RedirectToAction(nameof(Index));
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!await _context.Memberships.AnyAsync(m => m.MembershipID == id))
+                    return NotFound();
+                throw;
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = "Database error: " + ex.Message;
+                return View(model);
+            }
         }
 
-        // GET: Memberships/Delete/5
+        // GET: Membership/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
 
-            var membership = await _context.Memberships.FirstOrDefaultAsync(m => m.MembershipID == id);
-            if (membership == null) return NotFound();
+            var membership = await _context.Memberships
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.MembershipID == id.Value);
+
+            if (membership == null)
+                return NotFound();
 
             return View(membership);
         }
 
-        // POST: Memberships/Delete/5
+        // POST: Membership/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -105,15 +142,9 @@ namespace Gym_Membership.Controllers
             {
                 _context.Memberships.Remove(membership);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Membership deleted successfully!";
             }
             return RedirectToAction(nameof(Index));
         }
-
-        public async Task<IActionResult> Plans()
-        {
-            var memberships = await _context.Memberships.ToListAsync();
-            return View(memberships);
-        }
-
     }
 }

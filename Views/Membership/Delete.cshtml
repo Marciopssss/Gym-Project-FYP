@@ -3,14 +3,18 @@
     ViewData["Title"] = "Delete Membership";
 }
 
-<h2>Delete Membership</h2>
+<div class="container py-4 text-light">
+    <h2 class="fw-bold mb-4 text-danger">Delete Membership</h2>
 
-<div class="alert alert-danger">
-    Are you sure you want to delete the membership "<strong>@Model.Type</strong>"?
+    <div class="alert alert-danger">
+        Are you sure you want to delete the membership:
+        <strong>@Model.Type</strong>?
+    </div>
+
+    <form asp-action="Delete" method="post">
+        @Html.AntiForgeryToken()
+        <input type="hidden" asp-for="MembershipID" />
+        <button type="submit" class="btn btn-danger">Confirm Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
 </div>
-
-<form asp-action="DeleteConfirmed" method="post">
-    <input type="hidden" asp-for="MembershipID" />
-    <button type="submit" class="btn btn-danger">Delete</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-</form>

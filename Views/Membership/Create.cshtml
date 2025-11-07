@@ -1,55 +1,62 @@
 ﻿@model Gym_Membership.Models.Membership
+@{
+    ViewData["Title"] = "Create Membership";
+}
 
-<form asp-action="Create" asp-controller="Membership" method="post">
+<h2 class="mb-3">Create Membership</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<form asp-action="Create" method="post">
     @Html.AntiForgeryToken()
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-
-    <!-- Type (string) -->
     <div class="mb-3">
-        <label asp-for="Type" class="form-label text-light"></label>
-        <select asp-for="Type" class="form-select bg-dark text-light border-secondary" required>
-            <option value="">-- Select Membership Type --</option>
-            <option value="Basic">Basic</option>
-            <option value="Premium">Premium</option>
-            <option value="Student">Student</option>
-            <option value="VIP">VIP</option>
+        <label asp-for="Type" class="form-label"></label>
+        <select asp-for="Type" class="form-select" required>
+            <option value="">-- Select Type --</option>
+            <option>Basic</option>
+            <option>Premium</option>
+            <option>Student</option>
         </select>
         <span asp-validation-for="Type" class="text-danger"></span>
     </div>
 
-    <!-- Duration (int) -->
     <div class="mb-3">
-        <label asp-for="Duration" class="form-label text-light"></label>
-        <select asp-for="Duration" class="form-select bg-dark text-light border-secondary" required>
-            <option value="">-- Select Duration --</option>
-            <option value="1">1 Month</option>
-            <option value="3">3 Months</option>
-            <option value="6">6 Months</option>
-            <option value="12">12 Months</option>
-        </select>
+        <label asp-for="Duration" class="form-label"></label>
+        <input asp-for="Duration" class="form-control" type="number" min="1" required />
         <span asp-validation-for="Duration" class="text-danger"></span>
     </div>
 
-    <!-- Price (decimal) -->
     <div class="mb-3">
-        <label asp-for="Price" class="form-label text-light"></label>
-        <select asp-for="Price" class="form-select bg-dark text-light border-secondary" required>
-            <option value="">-- Select Price --</option>
-            <option value="20.00">20$</option>
-            <option value="50.00">50$</option>
-            <option value="90.00">90$</option>
-            <option value="150.00">150$</option>
-        </select>
+        <label asp-for="Price" class="form-label"></label>
+        <input asp-for="Price" class="form-control" type="number" step="0.01" min="0" required />
         <span asp-validation-for="Price" class="text-danger"></span>
     </div>
-    
 
-    <div class="d-flex justify-content-between">
-        <button type="submit" class="btn btn-success w-50 me-2">Save</button>
-        <a asp-action="Index" class="btn btn-secondary w-50">Cancel</a>
+    <div class="mb-3">
+        <label asp-for="StartDate" class="form-label"></label>
+        <input asp-for="StartDate" class="form-control" type="date" required />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
     </div>
 
+    <div class="mb-3">
+        <label asp-for="description" class="form-label"></label>
+        <textarea asp-for="description" class="form-control" rows="3" placeholder="Optional description"></textarea>
+        <span asp-validation-for="description" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ImagePath" class="form-label"></label>
+        <input asp-for="ImagePath" class="form-control" placeholder="Optional image URL" />
+        <span asp-validation-for="ImagePath" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>
 
 @section Scripts {
