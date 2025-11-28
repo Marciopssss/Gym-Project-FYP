@@ -281,6 +281,14 @@ h1 span {
     transform-origin: 70% 70%;
 }
 
+.badge.bg-info {
+    background: linear-gradient(135deg, #00bfff, #00a2ff);
+    font-weight: 600;
+    box-shadow: 0 0 8px rgba(0, 191, 255, 0.5);
+    border: none;
+}
+
+
 
 
 

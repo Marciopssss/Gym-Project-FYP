@@ -16,7 +16,8 @@
     <p><strong>Duration:</strong> @Model.Duration minutes</p>
 </div>
 
-<form asp-action="DeleteConfirmed" method="post">
+<form asp-action="Delete" method="post">
+    <!-- <-- here -->
     @Html.AntiForgeryToken()
     <input type="hidden" asp-for="ClassID" />
     <div class="d-flex justify-content-between mt-3">

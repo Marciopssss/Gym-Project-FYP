@@ -12,7 +12,7 @@ namespace Gym_Membership.Models
         public string Phone { get; set; }
         public string Email { get; set; }
 
-        // One-to-One with User
+        // One-to-One with User (account owner)
         [ForeignKey(nameof(User))]
         public int UserId { get; set; }
         public User User { get; set; }
@@ -24,7 +24,15 @@ namespace Gym_Membership.Models
         // One-to-One with Pays
         public Pays Pays { get; set; }
 
-        // One-to-Many with Classes
+        // 🔹 Personal trainer relationship (many customers → one trainer)
+        //  NO [ForeignKey] attribute here now
+        public int? PersonalTrainerId { get; set; }   // FK column in Customers table
+        public User? PersonalTrainer { get; set; }    // Navigation to trainer User
+
+        // 🔹 Personal training session time
+        public DateTime? PersonalTrainingTime { get; set; }
+
+        // One-to-Many with Classes  (this part is a bit weird but leave it for now)
         public int? ClassID { get; set; }
         [ForeignKey("ClassID")]
         public ICollection<Classes> Classes { get; set; }
@@ -32,9 +40,7 @@ namespace Gym_Membership.Models
         // One-to-Many with Feedback
         public ICollection<Feedback> Feedbacks { get; set; }
 
-        // ✅ NEW: Manual activation/deactivation flag
         public bool IsActive { get; set; } = true;
         public ICollection<Subscription>? Subscriptions { get; set; }
-
     }
 }

@@ -87,29 +87,31 @@ namespace Gym_Membership.Controllers
         }
 
         // GET: Classes/Delete/5
+        // GET: Classes/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return NotFound();
-            var entity = await _context.Classes.AsNoTracking()
-                .FirstOrDefaultAsync(c => c.ClassID == id.Value);
-            if (entity == null) return NotFound();
-            return View(entity);
+
+            var cls = await _context.Classes.FirstOrDefaultAsync(c => c.ClassID == id);
+            if (cls == null) return NotFound();
+
+            return View(cls);
         }
 
         // POST: Classes/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Delete")]                // <- the route name is "Delete"
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var entity = await _context.Classes.FindAsync(id);
-            if (entity != null)
+            var cls = await _context.Classes.FindAsync(id);
+            if (cls != null)
             {
-                _context.Classes.Remove(entity);
+                _context.Classes.Remove(cls);
                 await _context.SaveChangesAsync();
-                TempData["Success"] = "Class deleted successfully!";
             }
             return RedirectToAction(nameof(Index));
         }
+
 
         // ✅ USER SIDE - Browse Classes
         public IActionResult Browse()

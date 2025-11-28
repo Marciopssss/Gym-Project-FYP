@@ -1,0 +1,83 @@
+﻿@model Gym_Membership.Models.TrainerProfileViewModel
+
+@{
+    ViewData["Title"] = "Trainer Profile";
+}
+
+<div class="container py-4 text-light">
+
+    <h2 class="fw-bold mb-4 text-info">
+        Trainer Profile – @Model.CurrentTrainer.FullName (@Model.CurrentTrainer.Username)
+    </h2>
+
+    <!-- 🔹 All Trainers in the Gym -->
+    <h4 class="mt-4 mb-3 text-uppercase text-secondary">All Gym Trainers</h4>
+    @if (Model.AllTrainers.Any())
+    {
+        <table class="table table-dark table-striped table-hover align-middle">
+            <thead class="table-info text-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var t in Model.AllTrainers)
+                {
+                    <tr>
+                        <td>@t.UserId</td>
+                        <td>@t.FullName</td>
+                        <td>@t.Username</td>
+                        <td>@t.Email</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-muted">No trainers found.</p>
+    }
+
+    <hr class="my-5 border-info opacity-50" />
+
+    <!-- 🔹 My Personal Training Clients -->
+    <h4 class="mt-4 mb-3 text-uppercase text-warning">My Personal Training Clients</h4>
+
+    @if (Model.MyClients.Any())
+    {
+        <table class="table table-dark table-hover align-middle">
+            <thead class="table-warning text-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Client Name</th>
+                    <th>Email</th>
+                    <th>Membership</th>
+                    <th>PT Session Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model.MyClients)
+                {
+                    <tr>
+                        <td>@c.CustomerID</td>
+                        <td>@c.Name</td>
+                        <td>@c.Email</td>
+                        <td>@c.Membership?.Type</td>
+                        <td>
+                            @(c.PersonalTrainingTime.HasValue
+                                                ? c.PersonalTrainingTime.Value.ToString("dd MMM yyyy - HH:mm")
+                                                : "Not scheduled")
+                </td>
+            </tr>
+                        }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="text-muted">You have no assigned personal training clients yet.</p>
+    }
+</div>

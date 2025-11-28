@@ -131,6 +131,12 @@ namespace Gym_Membership.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("PersonalTrainerId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("PersonalTrainingTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -138,12 +144,21 @@ namespace Gym_Membership.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("UserId1")
+                        .HasColumnType("int");
+
                     b.HasKey("CustomerID");
 
                     b.HasIndex("MembershipID");
 
+                    b.HasIndex("PersonalTrainerId");
+
                     b.HasIndex("UserId")
                         .IsUnique();
+
+                    b.HasIndex("UserId1")
+                        .IsUnique()
+                        .HasFilter("[UserId1] IS NOT NULL");
 
                     b.ToTable("Customers");
                 });
@@ -381,6 +396,9 @@ namespace Gym_Membership.Migrations
                     b.Property<int>("MembershipID")
                         .HasColumnType("int");
 
+                    b.Property<int?>("MembershipID1")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
@@ -394,7 +412,47 @@ namespace Gym_Membership.Migrations
 
                     b.HasIndex("MembershipID");
 
+                    b.HasIndex("MembershipID1");
+
                     b.ToTable("Subscriptions");
+                });
+
+            modelBuilder.Entity("Gym_Membership.Models.TrainerApplication", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("AdditionalInfo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CertificatePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Experience")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SubmittedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TrainerApplications");
                 });
 
             modelBuilder.Entity("Gym_Membership.Models.User", b =>
@@ -420,6 +478,12 @@ namespace Gym_Membership.Migrations
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("IsTrainer")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Notification")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
@@ -428,6 +492,15 @@ namespace Gym_Membership.Migrations
 
                     b.Property<string>("Role")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TrainerNotification")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("TrainerPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("TrainerSchedule")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Username")
@@ -480,13 +553,24 @@ namespace Gym_Membership.Migrations
                         .WithMany("Customers")
                         .HasForeignKey("MembershipID");
 
+                    b.HasOne("Gym_Membership.Models.User", "PersonalTrainer")
+                        .WithMany()
+                        .HasForeignKey("PersonalTrainerId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
                     b.HasOne("Gym_Membership.Models.User", "User")
-                        .WithOne("Customer")
+                        .WithOne()
                         .HasForeignKey("Gym_Membership.Models.Customer", "UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Gym_Membership.Models.User", null)
+                        .WithOne("Customer")
+                        .HasForeignKey("Gym_Membership.Models.Customer", "UserId1");
+
                     b.Navigation("Membership");
+
+                    b.Navigation("PersonalTrainer");
 
                     b.Navigation("User");
                 });
@@ -597,6 +681,10 @@ namespace Gym_Membership.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
+                    b.HasOne("Gym_Membership.Models.Membership", null)
+                        .WithMany("Subscriptions")
+                        .HasForeignKey("MembershipID1");
+
                     b.Navigation("Customer");
 
                     b.Navigation("Membership");
@@ -620,6 +708,8 @@ namespace Gym_Membership.Migrations
             modelBuilder.Entity("Gym_Membership.Models.Membership", b =>
                 {
                     b.Navigation("Customers");
+
+                    b.Navigation("Subscriptions");
                 });
 
             modelBuilder.Entity("Gym_Membership.Models.Staff", b =>

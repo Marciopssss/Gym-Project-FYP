@@ -39,6 +39,18 @@ namespace Gym_Membership.Controllers
 
                 return RedirectToAction("Index", "Home");
             }
+            if (!string.IsNullOrEmpty(user.TrainerNotification))
+            {
+                HttpContext.Session.SetString("TrainerNotification", user.TrainerNotification);
+
+                // clear it so the user sees it only once
+                user.TrainerNotification = null;
+            }
+
+            // redirect to user dashboard/home
+            if (user.Role == "Admin")
+                return RedirectToAction("Dashboard", "Admin");
+
 
             ViewBag.Error = "Invalid username or password.";
             return View();

@@ -56,7 +56,9 @@
                     }
 
 
-                    <li class="nav-item"><a class="nav-link" asp-controller="Employees" asp-action="Index">Trainers</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Trainer" asp-action="Browse">Trainers</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Contact">Contact</a></li>
 
                     @if (string.IsNullOrEmpty(username))
@@ -78,7 +80,37 @@
                             <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
                                 <li><a class="dropdown-item" asp-controller="Admin" asp-action="Dashboard">Dashboard</a></li>
                                 <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" asp-controller="TrainerApplication" asp-action="AdminView">Trainer Applications</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+
                                 <li><a class="dropdown-item text-danger" asp-controller="Auth" asp-action="Logout">Logout</a></li>
+                            </ul>
+                        </li>
+                    }
+                    else if (role == "Trainer")
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-info" data-bs-toggle="dropdown" href="#">
+                                @username
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Trainer" asp-action="Profile">
+                                        Trainer Profile
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" asp-controller="User" asp-action="Profile">My Profile</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+
+                                <li><a class="dropdown-item" asp-controller="User" asp-action="MyClasses">My Classes</a></li>
+
+                                <li><hr class="dropdown-divider" /></li>
+                                <li>
+                                    <a class="dropdown-item text-danger" asp-controller="Auth" asp-action="Logout">
+                                        Logout
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     }
@@ -95,6 +127,9 @@
                                 <li><a class="dropdown-item" asp-controller="User" asp-action="MyClasses">My Classes</a></li>
 
                                 <li><hr class="dropdown-divider" /></li>
+                                <li><a class="dropdown-item" asp-controller="TrainerApplication" asp-action="Apply">Become a Trainer</a></li>
+                                <li><hr class="dropdown-divider" /></li>
+
                                 <li><a class="dropdown-item text-danger" asp-controller="Auth" asp-action="Logout">Logout</a></li>
                             </ul>
                         </li>
@@ -107,6 +142,23 @@
     <!-- ✅ THIS IS THE CRITICAL LINE -->
     <main class="container my-4">
         @RenderBody()
+        @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+        @{
+            var trainerMsg = HttpContextAccessor.HttpContext.Session.GetString("TrainerNotification");
+        }
+
+        @if (!string.IsNullOrEmpty(trainerMsg))
+        {
+            <div class="container mt-3">
+                <div class="alert alert-success alert-dismissible fade show">
+                    <i class="bi bi-check-circle-fill me-2"></i>
+                    @trainerMsg
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            </div>
+        }
+
     </main>
 
     @{

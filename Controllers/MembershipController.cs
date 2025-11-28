@@ -137,14 +137,22 @@ namespace Gym_Membership.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            var subs = await _context.Subscriptions
+                .Where(s => s.MembershipID == id)
+                .ToListAsync();
+
+            if (subs.Any())
+                _context.Subscriptions.RemoveRange(subs);
+
             var membership = await _context.Memberships.FindAsync(id);
             if (membership != null)
-            {
                 _context.Memberships.Remove(membership);
-                await _context.SaveChangesAsync();
-                TempData["SuccessMessage"] = "Membership deleted successfully!";
-            }
+
+            await _context.SaveChangesAsync();
+            TempData["Success"] = "Membership deleted.";
             return RedirectToAction(nameof(Index));
         }
+
+
     }
 }

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Gym_Membership.Models.TrainerApplication>
+@{
+    ViewData["Title"] = "Trainer Applications";
+}
+
+<div class="container py-5 text-light">
+    <h2 class="fw-bold text-info mb-4 text-center">Trainer Applications 🧾</h2>
+
+    <table class="table table-dark table-hover align-middle shadow-lg rounded-4">
+        <thead class="table-info text-dark">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Experience</th>
+                <th>Certificate</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var app in Model)
+            {
+                <tr>
+                    <td>@app.Username</td>
+                    <td>@app.Email</td>
+                    <td>@app.Experience</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(app.CertificatePath))
+                        {
+                            <a href="@app.CertificatePath" target="_blank" class="text-info">View</a>
+                        }
+                        else
+                        {
+                            <span class="text-secondary">No File</span>
+                        }
+                    </td>
+                    <td>
+                        <span class="badge bg-@(app.Status == "Approved" ? "success" : app.Status == "Rejected" ? "danger" : "warning text-dark")">
+                            @app.Status
+                        </span>
+                    </td>
+                    <td>
+                        @if (app.Status == "Pending")
+                        {
+                            <form asp-action="Approve" method="post" class="d-inline">
+                                <input type="hidden" name="id" value="@app.Id" />
+                                <button type="submit" class="btn btn-success btn-sm">
+                                    <i class="bi bi-check-circle me-1"></i>Approve
+                                </button>
+                            </form>
+                            <form asp-action="Reject" method="post" class="d-inline">
+                                <input type="hidden" name="id" value="@app.Id" />
+                                <button type="submit" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-x-circle me-1"></i>Reject
+                                </button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

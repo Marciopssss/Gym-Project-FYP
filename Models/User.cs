@@ -10,11 +10,11 @@ namespace Gym_Membership.Models
         [Required]
         public string Username { get; set; }
 
-        //[Required]
         public string? Password { get; set; }
 
         public string? Email { get; set; }
         public string? FullName { get; set; }
+
         [Phone]
         public string? Phone { get; set; }
 
@@ -25,13 +25,21 @@ namespace Gym_Membership.Models
 
         public string? Gender { get; set; }
 
-
-        // ✅ Keep this: simple string role column
+        // ✅ User Role (Admin / User)
         public string Role { get; set; } = "User";
 
-        // ✅ Keep optional relations (not RoleEntity)
+        // ✅ Optional relationships
         public virtual Admin? Admin { get; set; }
         public virtual Customer? Customer { get; set; }
         public virtual Staff? Staff { get; set; }
+
+        // 🏋️ Added for Trainer feature
+        public bool IsTrainer { get; set; } = false;
+        public decimal? TrainerPrice { get; set; }            // price per month / package
+        public string? TrainerSchedule { get; set; }
+
+        // 💬 Optional notification for system messages
+        public string? Notification { get; set; }
+        public string? TrainerNotification { get; set; }
     }
 }

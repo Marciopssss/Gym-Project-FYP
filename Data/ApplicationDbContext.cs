@@ -24,6 +24,8 @@ namespace Gym_Membership.Data
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<CustomerClass> CustomerClasses { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<TrainerApplication> TrainerApplications { get; set; }
+
 
 
 
@@ -45,7 +47,21 @@ namespace Gym_Membership.Data
                 .WithMany()
                 .HasForeignKey(s => s.MembershipID)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Customer>()
+              .HasOne(c => c.User)
+              .WithOne()                        // no nav back on User
+              .HasForeignKey<Customer>(c => c.UserId)
+              .OnDelete(DeleteBehavior.Restrict);
+
+            // ✅ Customer → PersonalTrainer (many customers per trainer)
+            modelBuilder.Entity<Customer>()
+                .HasOne(c => c.PersonalTrainer)
+                .WithMany()                      // trainer doesn't have a collection nav
+                .HasForeignKey(c => c.PersonalTrainerId)
+                .OnDelete(DeleteBehavior.SetNull);
         }
+       
 
     }
 }

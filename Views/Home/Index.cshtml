@@ -4,6 +4,8 @@
 @{
     ViewData["Title"] = "Home";
     var username = HttpContextAccessor.HttpContext.Session.GetString("Username");
+    var isTrainer = HttpContextAccessor.HttpContext.Session.GetString("IsTrainer");
+    var notification = ViewBag.Notification as string;
 }
 
 <!-- ===== HERO SECTION ===== -->
@@ -14,6 +16,13 @@
     <div class="alert alert-success text-center shadow-sm rounded-4 p-3 mb-4">
         <i class="bi bi-check-circle-fill me-2"></i>@TempData["Success"]
     </div>
+
+     @if (!string.IsNullOrEmpty(notification))
+        {
+            <div class="alert alert-success text-center shadow-sm rounded-4 p-3 mb-4">
+                <i class="bi bi-patch-check-fill me-2"></i> @notification
+            </div>
+        }
 }
 
         <!-- Title -->
@@ -157,6 +166,121 @@
         </div>
     </div>
 </section>
+
+<!-- 🌟 Frequently Asked Questions -->
+<section class="container my-5">
+    <h2 class="text-center text-info fw-bold mb-4">Frequently Asked Questions</h2>
+    <p class="text-center text-secondary mb-5">Everything you need to know about your Fitness Gym membership and services.</p>
+
+    <div class="accordion accordion-flush" id="faqAccordion">
+        <!-- Q1 -->
+        <div class="accordion-item bg-dark text-light border-secondary">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-dark text-info fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                    💪 Does Fitness Gym offer a free trial?
+                </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary">
+                    Yes! New members can enjoy a <strong>3-day free trial</strong> to experience our gym, classes, and trainers before committing to a membership plan.
+                </div>
+            </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="accordion-item bg-dark text-light border-secondary">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-dark text-info fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                    🏋️ What types of membership plans are available?
+                </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary">
+                    We offer <strong>Basic</strong>, <strong>Student</strong>, <strong>Premium</strong>, and <strong>VIP</strong> memberships — each designed for different fitness needs and budgets.
+                    You can explore all plans in the <a asp-controller="Membership" asp-action="Plans" class="text-info">Memberships</a> section.
+                </div>
+            </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="accordion-item bg-dark text-light border-secondary">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-dark text-info fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                    💳 How do I purchase a gym membership?
+                </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary">
+                    You can purchase a membership directly on our website. Just go to <strong>Memberships → Choose Plan</strong>, then complete your payment online.
+                    Your membership will be automatically activated in your account.
+                </div>
+            </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="accordion-item bg-dark text-light border-secondary">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-dark text-info fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                    🧍‍♂️ Can I book and manage my classes online?
+                </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary">
+                    Absolutely! Go to <strong>Classes → Browse Classes</strong> to view all sessions, book your spot, or cancel at any time. You’ll also see your schedule under <strong>My Classes</strong>.
+                </div>
+            </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="accordion-item bg-dark text-light border-secondary">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-dark text-info fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                    🧑‍🏫 What personal training options do you offer?
+                </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary">
+                    You can book one-on-one sessions with our certified trainers under the <strong>Trainers</strong> section.
+                    Each trainer’s profile includes working hours, experience, and specializations.
+                </div>
+            </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="accordion-item bg-dark text-light border-secondary">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed bg-dark text-info fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                    📅 Can I pause or cancel my membership?
+                </button>
+            </h2>
+            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary">
+                    Yes, you can manage your membership anytime in your profile settings. You may pause, renew, or cancel according to your membership type.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 🪄 Custom Styles -->
+<style>
+    .accordion-button:not(.collapsed) {
+        color: #00bfff;
+        background-color: rgba(0, 191, 255, 0.1);
+        box-shadow: none;
+    }
+
+    .accordion-button:focus {
+        box-shadow: 0 0 10px rgba(0, 191, 255, 0.4);
+    }
+
+    .accordion-item {
+        border-radius: 10px;
+        margin-bottom: 10px;
+        overflow: hidden;
+    }
+</style>
+
 
 <!-- ===== LOGIN PROMPT MODAL ===== -->
 <div class="modal fade" id="loginPromptModal" tabindex="-1" aria-labelledby="loginPromptLabel" aria-hidden="true">

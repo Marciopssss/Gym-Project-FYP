@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Gym_Membership.Models.User>
+@{
+    ViewData["Title"] = "Trainers";
+}
+
+<div class="container py-4 text-light">
+    <h2 class="mb-4">Our Personal Trainers</h2>
+
+    @if (!Model.Any())
+    {
+        <p class="text-secondary">No trainers available at the moment.</p>
+    }
+    else
+    {
+        <div class="row g-4">
+            @foreach (var t in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card bg-dark border-secondary h-100">
+                        <div class="card-body">
+                            <h5 class="card-title text-info">@t.FullName</h5>
+                            <p class="card-text mb-1"><strong>Email:</strong> @t.Email</p>
+                            <p class="card-text mb-1"><strong>Phone:</strong> @t.Phone</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>
